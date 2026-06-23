@@ -1,0 +1,123 @@
+id,title,artist,spotify_url,genre,song_group,is_duet,is_solo,is_active,created_at
+53,Hotel California,Eagles,https://open.spotify.com/track/40riOy7x9W7GXjyGp4pjAv,"classic rock,yacht rock,soft rock",,f,f,t,2026-04-24 22:19:38.177208
+70,Rock the Casbah,The Clash,https://open.spotify.com/track/56KqaFSGTb7ifpt16t5Y1N,punk,,f,f,t,2026-04-24 22:19:39.352664
+162,Let It Go,Frozen (Idina Menzel),https://open.spotify.com/track/0qcr5FMsEO85NAQjrlDRKo?si=21612f80be3f4181,"Pop, Disney, Show Tune, Power Ballad",Disney / Kids,f,f,t,2026-05-27 03:27:05.642968
+41,Another One Bites The Dust,Queen,https://open.spotify.com/track/5Lsg8jlCoTyxRch9LvJo3E,"classic rock,rock,glam rock",,f,f,t,2026-04-24 22:19:37.419039
+42,Attention,Charlie Puth,https://open.spotify.com/track/5cF0dROlMOK5uNZtivgu50,soft pop,,f,f,t,2026-04-24 22:19:37.483646
+43,Celebrity Skin,Hole,https://open.spotify.com/track/2V4Bc2I962j7acQj1N0PiQ,"riot grrrl,grunge",,f,f,t,2026-04-24 22:19:37.546992
+44,Creep,Radiohead,https://open.spotify.com/track/70LcF31zb1H0PyJoS1Sx1r,"art rock,alternative rock",,f,f,t,2026-04-24 22:19:37.606943
+45,Don't Speak,No Doubt,https://open.spotify.com/track/6urCAbunOQI4bLhmGpX7iS,"",,f,f,t,2026-04-24 22:19:37.66601
+46,Don't Stop Believin',Journey,https://open.spotify.com/track/77NNZQSqzLNqh2A9JhLRkg,"aor,classic rock",,f,f,t,2026-04-24 22:19:37.726805
+47,Everybody Wants To Rule The World,Tears For Fears,https://open.spotify.com/track/4RvWPyQ5RL0ao9LPZeSouE,"new wave,synthpop",,f,f,t,2026-04-24 22:19:37.793164
+48,Genie In a Bottle,Christina Aguilera,https://open.spotify.com/track/11mwFrKvLXCbcVGNxffGyP,"",,f,f,t,2026-04-24 22:19:37.859734
+49,Ghostbusters,Ray Parker Jr.,https://open.spotify.com/track/3m0y8qLoznUYi73SUBP8GI,"",,f,f,t,2026-04-24 22:19:37.92432
+50,Grenade,Bruno Mars,https://open.spotify.com/track/2tJulUYLDKOg9XrtVkMgcJ,"",,f,f,t,2026-04-24 22:19:37.990785
+51,I Heard It Through The Grapevine,Marvin Gaye,https://open.spotify.com/track/1tqT6DhmsrtQgyCKUwotiw,"motown,classic soul,soul,northern soul,quiet storm",,f,f,t,2026-04-24 22:19:38.05693
+52,Highway Star,Deep Purple,https://open.spotify.com/track/4gVTozEmzwAUXpwj3jEetX,"hard rock,classic rock,rock",,f,f,t,2026-04-24 22:19:38.118056
+54,Is This Love,Bob Marley & The Wailers,https://open.spotify.com/track/6JRLFiX9NJSoRRKxowlBYr,"reggae,roots reggae",,f,f,t,2026-04-24 22:19:38.239732
+55,Learn to Fly,Foo Fighters,https://open.spotify.com/track/5OQsiBsky2k2kDKy2bX2eT,"rock,post-grunge,alternative rock,grunge",,f,f,t,2026-04-24 22:19:38.30617
+56,Let's Go Crazy,Prince,https://open.spotify.com/track/6FMIVQPZg9cmMY8hPxAacD,"funk rock,funk",,f,f,t,2026-04-24 22:19:38.366123
+57,Once in a Lifetime,Talking Heads,https://open.spotify.com/track/1Tr4K5MU5XYE44umXGDndd,"new wave,post-punk",,f,f,t,2026-04-24 22:19:38.428924
+58,Owner of a Lonely Heart,Yes,https://open.spotify.com/track/0GTK6TesV108Jj5D3MHsYb,"progressive rock,art rock,aor",,f,f,t,2026-04-24 22:19:38.493419
+59,Rhiannon,Fleetwood Mac,https://open.spotify.com/track/05oETzWbd4SI33qK2gbJfR,"yacht rock,classic rock,soft rock",,f,f,t,2026-04-24 22:19:38.600476
+60,Roxanne,The Police,https://open.spotify.com/track/3EYOJ48Et32uATr9ZmLnAo,"",,f,f,t,2026-04-24 22:19:38.680222
+61,Smoke on the Water,Deep Purple,https://open.spotify.com/track/5SAUIWdZ04OxYfJFDchC7S,"hard rock,classic rock,rock",,f,f,t,2026-04-24 22:19:38.784804
+62,Stressed Out,Twenty One Pilots,https://open.spotify.com/track/3CRDbSIZ4r5MsZ0YwxuEkn,"",,f,f,t,2026-04-24 22:19:38.847178
+63,Superstition,Stevie Wonder,https://open.spotify.com/track/4N0TP4Rmj6QQezWV88ARNJ,"motown,classic soul,soul",,f,f,t,2026-04-24 22:19:38.909977
+64,The Final Countdown,Europe,https://open.spotify.com/track/3MrRksHupTVEQ7YbA0FsZK,glam metal,,f,f,t,2026-04-24 22:19:38.973378
+65,The Sign,Ace of Base,https://open.spotify.com/track/0hrBpAOgrt8RXigk83LLNE,"eurodance,europop",,f,f,t,2026-04-24 22:19:39.033212
+66,We Are The Champions,Queen,https://open.spotify.com/track/6ceLJHWkvMM3oc0Ftodrdm,"classic rock,rock,glam rock",,f,f,t,2026-04-24 22:19:39.094917
+67,White Wedding,Billy Idol,https://open.spotify.com/track/35i19j4Zz7WaL5KozRHjyQ,"",,f,f,t,2026-04-24 22:19:39.155995
+68,Crazy Little Thing Called Love,Queen,https://open.spotify.com/track/6aU0F03DR257LCPAXjtg42,"classic rock,rock,glam rock",,f,f,t,2026-04-24 22:19:39.214436
+69,Dani California,Red Hot Chili Peppers,https://open.spotify.com/track/10Nmj3JCNoMeBQ87uw5j8k,"funk rock,alternative rock,rock",,f,f,t,2026-04-24 22:19:39.292282
+91,"Theme From New York, New York",Frank Sinatra,https://open.spotify.com/track/0K2WjMLZYr09LKwurGRYRE,"christmas,big band,adult standards,swing music,jazz,vocal jazz",,f,f,t,2026-04-24 22:19:40.772336
+73,Don't Stop,Fleetwood Mac,https://open.spotify.com/track/6l6vgKIgXLnqgSMqf4nGNc,"yacht rock,classic rock,soft rock",,f,f,t,2026-04-24 22:19:39.558194
+75,Love Story,Taylor Swift,https://open.spotify.com/track/1vrd6UOGamcKNGnSHJQlSt,"",,f,f,t,2026-04-24 22:19:39.686752
+76,Pour Some Sugar On Me,Def Leppard,https://open.spotify.com/track/1aZLIbKEdsyqxyD6iNcrbA,"glam metal,glam rock,classic rock",,f,f,t,2026-04-24 22:19:39.753805
+78,I'll Be Around,The Spinners,https://open.spotify.com/track/2vLaES21zwbX1Rnmj56Bbb,"philly soul,motown,classic soul,soul,northern soul",,f,f,t,2026-04-24 22:19:39.87398
+79,What Have You Done For Me Lately,Janet Jackson,https://open.spotify.com/track/2SFq0UIiBWkBgky0fkrHP0,new jack swing,,f,f,t,2026-04-24 22:19:39.930994
+81,25 or 6 to 4,Chicago,https://open.spotify.com/track/65eRcjlStTnk8opG5eIQ8Z,"yacht rock,soft rock",,f,f,t,2026-04-24 22:19:40.061909
+82,Escapade,Janet Jackson,https://open.spotify.com/track/5HAv1Ckfe50DUjv8ghwTrz,new jack swing,,f,f,t,2026-04-24 22:19:40.120912
+84,School's Out,Alice Cooper,https://open.spotify.com/track/5Z8EDau8uNcP1E8JvmfkZe,"glam rock,hard rock,glam metal,proto-punk,classic rock",,f,f,t,2026-04-24 22:19:40.2669
+86,One Day,Matisyahu,https://open.spotify.com/track/0nCZDQrlWA149QdGTdlsFU,"reggae,reggae rock,christian reggae",,f,f,t,2026-04-24 22:19:40.396309
+87,Señorita,Shawn Mendes;Camila Cabello,https://open.spotify.com/track/0TK2YIli7K1leLovkQiNik,"",,f,f,t,2026-04-24 22:19:40.476371
+88,Rehab,Amy Winehouse,https://open.spotify.com/track/1L5tZi0izXsi5Kk5OJf4W0,"",,f,f,t,2026-04-24 22:19:40.53364
+94,Buddy Holly,Weezer,https://open.spotify.com/track/3mwvKOyMmG77zZRunnxp9E,alternative rock,,f,f,t,2026-04-24 22:19:40.95875
+96,Total Eclipse of the Heart,Bonnie Tyler,https://open.spotify.com/track/7wuJGgpTNzbUyn26IOY6rj,"",,f,f,t,2026-04-24 22:19:41.076813
+97,I'm Gonna Be (500 Miles),The Proclaimers,https://open.spotify.com/track/67iAlVNDDdddxqSD2EZhFs,celtic rock,,f,f,t,2026-04-24 22:19:41.136803
+99,Straight Up,Paula Abdul,https://open.spotify.com/track/5xl5582IihbEZAnfj0xyso,"",,f,f,t,2026-04-24 22:19:41.265251
+100,Pink Pony Club,Chappell Roan,https://open.spotify.com/track/1k2pQc5i348DCHwbn5KTdc,"",,f,f,t,2026-04-24 22:19:41.333611
+102,All The Small Things,blink-182,https://open.spotify.com/track/2m1hi0nfMR9vdGC8UcrnwU,"pop punk,punk,rock,skate punk,emo",,f,f,t,2026-04-24 22:19:41.491763
+104,Motownphilly,Boyz II Men,https://open.spotify.com/track/4wDSLkTUIpRsn3UbCzW9wV,"new jack swing,r&b,quiet storm",,f,f,t,2026-04-24 22:19:41.627981
+106,Rhythm Of The Night,DeBarge,https://open.spotify.com/track/5yGTQzYbEdY6B9RFZJypgt,quiet storm,,f,f,t,2026-04-24 22:19:41.752161
+110,My Lovin' (You're Never Gonna Get It),En Vogue,https://open.spotify.com/track/3R97rNX7JnmshCWBwOSFet,new jack swing,,f,f,t,2026-04-24 22:19:42.00837
+112,Basket Case,Green Day,https://open.spotify.com/track/6L89mwZXSOwYl76YXfX13s,"punk,pop punk",,f,f,t,2026-04-24 22:19:42.135681
+113,Get Down Tonight,KC & The Sunshine Band,https://open.spotify.com/track/7sAWOqtpE9uWGYML3WLNGw,disco,,f,f,t,2026-04-24 22:19:42.199738
+114,Come Out and Play,The Offspring,https://open.spotify.com/track/5JJDu0Z5DKe7mR31MGksSg,"punk,skate punk",,f,f,t,2026-04-24 22:19:42.26109
+116,Shake It Off,Taylor Swift,https://open.spotify.com/track/5xTtaWoae3wi06K5WfVUUH,"",,f,f,t,2026-04-24 22:19:42.394474
+118,In the End,Linkin Park,https://open.spotify.com/track/60a0Rd6pjrkxjPbaKzXjfq,"nu metal,rap metal,rock,alternative metal",,f,f,t,2026-04-24 22:19:42.516189
+119,You'll Never Find Another Love Like Mine,Lou Rawls,https://open.spotify.com/track/6OylYIXrIH2E3hgg7Dqz5M,"philly soul,classic soul,soul blues",,f,f,t,2026-04-24 22:19:42.611395
+121,In Bloom,Nirvana,https://open.spotify.com/track/30HCB1FoE77IfGRyNv4eFq,"grunge,rock",,f,f,t,2026-04-24 22:19:42.741605
+122,Losing My Religion,R.E.M.,https://open.spotify.com/track/31AOj9sFz2gM0O3hMARRBx,"jangle pop,alternative rock,rock",,f,f,t,2026-04-24 22:19:42.8053
+123,Tribute,Tenacious D,https://open.spotify.com/track/6crBy2sODw2HS53xquM6us,comedy,,f,f,t,2026-04-24 22:19:42.882085
+124,Sir Duke,Stevie Wonder,https://open.spotify.com/track/4pNiE4LCVV74vfIBaUHm1b,"motown,classic soul,soul",,f,f,t,2026-04-24 22:19:42.94491
+126,American Girl,Tom Petty and the Heartbreakers,https://open.spotify.com/track/6SIV02mskzzc3KXK7t4NHj,classic rock,,f,f,t,2026-04-24 22:19:43.077397
+127,Smells Like Teen Spirit,Nirvana,https://open.spotify.com/track/5ghIJDpPoe3CfHMGu71E6T,"grunge,rock",,f,f,t,2026-04-24 22:19:43.219967
+129,"Oh, Pretty Woman",Roy Orbison,https://open.spotify.com/track/52HAHV1j93s5B8GoTNI7DJ,rockabilly,,f,f,t,2026-04-24 22:19:43.345855
+131,All Star,Smash Mouth,https://open.spotify.com/track/3cfOd4CMv2snFaKAnMdnvK,"",,f,f,t,2026-04-24 22:19:43.470932
+133,Gives You Hell,The All-American Rejects,https://open.spotify.com/track/6ihL9TjfRjadfEePzXXyVF,"pop punk,emo",,f,f,t,2026-04-24 22:19:43.59474
+135,People Are Strange,The Doors,https://open.spotify.com/track/1Jmqubf9kGkWeYQXQKImL5,"psychedelic rock,classic rock,acid rock",,f,f,t,2026-04-24 22:19:43.714389
+136,It's The Same Old Song,Four Tops,https://open.spotify.com/track/7d1ustAIlXG7ht5Q4IOv7s,"motown,northern soul,classic soul,soul",,f,f,t,2026-04-24 22:19:43.776059
+138,Thriller,Michael Jackson,https://open.spotify.com/track/3S2R0EVwBSAVMd5UMgKTL0,"",,f,f,t,2026-04-24 22:19:43.89435
+139,Teenage Dirtbag,Wheatus,https://open.spotify.com/track/25FTMokYEbEWHEdss5JLZS,"",,f,f,t,2026-04-24 22:19:43.954435
+141,Kryptonite,3 Doors Down,https://open.spotify.com/track/6ZOBP3NvffbU4SZcrnt1k6,post-grunge,,f,f,t,2026-04-24 22:19:44.097537
+146,You Give Love A Bad Name,Bon Jovi,https://open.spotify.com/track/0rmGAIH9LNJewFw7nKzZnc,glam metal,,f,f,t,2026-04-24 22:19:44.482246
+147,Only Happy When It Rains,Garbage,https://open.spotify.com/track/1IsGA5ceSC4a5nxgAEYnQd,"",,f,f,t,2026-04-24 22:19:44.541612
+149,Hurts So Good,John Mellencamp,https://open.spotify.com/track/67eX1ovaHyVPUinMHeUtIM,classic rock,,f,f,t,2026-04-24 22:19:44.686195
+92,My Way,Frank Sinatra,https://open.spotify.com/track/2YkIDPL5lGhRhomCq4S2RO,"christmas,big band,adult standards,swing music,jazz,vocal jazz",,f,f,t,2026-04-24 22:19:40.834718
+93,Disco Inferno,The Trammps,https://open.spotify.com/track/3GXo1eWlT2flv4x01l5OTu,"disco,philly soul,northern soul",,f,f,t,2026-04-24 22:19:40.896812
+108,Hungry Like the Wolf,Duran Duran,https://open.spotify.com/track/39lSeqnyjZJejRuaREfyLL,"new wave,synthpop",,f,f,t,2026-04-24 22:19:41.882578
+71,Just the Way You Are,Bruno Mars,https://open.spotify.com/track/7BqBn9nzAq8spo5e7cZ0dJ,"",,f,f,t,2026-04-24 22:19:39.43011
+72,Starlight,Muse,https://open.spotify.com/track/3skn2lauGk7Dx6bVIt5DVj,"alternative rock,rock",,f,f,t,2026-04-24 22:19:39.492769
+74,Jump,Van Halen,https://open.spotify.com/track/6Fba9RZtC6vTY814JToDtP,"glam metal,classic rock,rock,hard rock",,f,f,t,2026-04-24 22:19:39.620916
+77,What's Going On,Marvin Gaye,https://open.spotify.com/track/3Um9toULmYFGCpvaIPFw7l,"motown,classic soul,soul,northern soul,quiet storm",,f,f,t,2026-04-24 22:19:39.811945
+80,Tell Me Something Good,Rufus;Chaka Khan,https://open.spotify.com/track/0AECVMjxepWdsjDb49JFRd,quiet storm,,f,f,t,2026-04-24 22:19:39.992633
+83,Let's Groove,"Earth, Wind & Fire",https://open.spotify.com/track/3koCCeSaVUyrRo3N2gHrd8,"funk,disco",,f,f,t,2026-04-24 22:19:40.192053
+85,"Can't Get Enough Of Your Love, Babe",Barry White,https://open.spotify.com/track/3mWpUEBYnv9SIFWfixSJFx,"disco,soul,classic soul,quiet storm,philly soul",,f,f,t,2026-04-24 22:19:40.333099
+89,Don't You Want Me,The Human League,https://open.spotify.com/track/3L7RtEcu1Hw3OXrpnthngx,"new wave,synthpop",,f,f,t,2026-04-24 22:19:40.604863
+90,Ain't No Mountain High Enough,Marvin Gaye;Tammi Terrell,https://open.spotify.com/track/7tqhbajSfrz2F7E1Z75ASX,"motown,classic soul,soul,northern soul,quiet storm",,f,f,t,2026-04-24 22:19:40.668195
+98,Let's Stay Together,Al Green,https://open.spotify.com/track/63xdwScd1Ai1GigAwQxE8y,"soul,classic soul,motown,soul blues",,f,f,t,2026-04-24 22:19:41.202191
+101,Murder On The Dancefloor,Sophie Ellis-Bextor,https://open.spotify.com/track/4tKGFmENO69tZR9ahgZu48,"",,f,f,t,2026-04-24 22:19:41.41813
+103,It's My Life,Bon Jovi,https://open.spotify.com/track/0v1XpBHnsbkCn7iJ9Ucr1l,glam metal,,f,f,t,2026-04-24 22:19:41.557635
+105,...Baby One More Time,Britney Spears,https://open.spotify.com/track/3MjUtNVVq3C8Fn0MP3zhXa,pop,,f,f,t,2026-04-24 22:19:41.692417
+107,What Becomes Of The Brokenhearted,Jimmy Ruffin,https://open.spotify.com/track/0wBaPbJ2qsbGqgnGbqBDgP,"motown,northern soul,classic soul,soul",,f,f,t,2026-04-24 22:19:41.819547
+115,Fly Away,Lenny Kravitz,https://open.spotify.com/track/1OxcIUqVmVYxT6427tbhDW,"",,f,f,t,2026-04-24 22:19:42.327464
+109,Sledgehammer,Peter Gabriel,https://open.spotify.com/track/4AUS8KNz7zX8XFu9L38GT0,art rock,,f,f,t,2026-04-24 22:19:41.9444
+142,Dancing with Myself,Billy Idol;Generation X,https://open.spotify.com/track/3rQfYDjgpRy5LFlClpPQW9,"",,f,f,t,2026-04-24 22:19:44.158207
+143,Lonely Is The Night,Billy Squier,https://open.spotify.com/track/28eg5bkYvIHT7HPmzZFwLN,"classic rock,aor",,f,f,t,2026-04-24 22:19:44.215667
+128,Super Freak,Rick James,https://open.spotify.com/track/2dCmGcEOQrMQhMMS8Vj7Ca,"funk,motown,disco",,f,f,t,2026-04-24 22:19:43.278513
+130,Closing Time,Semisonic,https://open.spotify.com/track/1A5V1sxyCLpKJezp75tUXn,"",,f,f,t,2026-04-24 22:19:43.408001
+132,What I Got,Sublime,https://open.spotify.com/track/3B4q6KbHbGV51HO3GznBFF,"reggae rock,ska punk,ska",,f,f,t,2026-04-24 22:19:43.534854
+134,Roadhouse Blues,The Doors,https://open.spotify.com/track/1Q5kgpp4pmyGqPwNBzkSrw,"psychedelic rock,classic rock,acid rock",,f,f,t,2026-04-24 22:19:43.655573
+145,Comedown,Bush,https://open.spotify.com/track/7KgVUnGCMEXBwY2EeqGlaI,"grunge,post-grunge",,f,f,t,2026-04-24 22:19:44.345517
+95,Don't Look Back In Anger,Oasis,https://open.spotify.com/track/12dU3vAh6AFoJkisorfoUl,"britpop,madchester",,f,f,t,2026-04-24 22:19:41.019064
+111,Fly Me To The Moon,Frank Sinatra;Count Basie,https://open.spotify.com/track/7FXj7Qg3YorUxdrzvrcY25,"christmas,big band,adult standards,swing music,jazz,vocal jazz",,f,f,t,2026-04-24 22:19:42.070294
+148,Bleed American,Jimmy Eat World,https://open.spotify.com/track/61XspFITuKmAlYdQacNCbF,"emo,pop punk",,f,f,t,2026-04-24 22:19:44.621524
+150,Ring of Fire,Johnny Cash,https://open.spotify.com/track/5rDkA2TFOImbiVenmnE9r4,"classic country,outlaw country,country",,f,f,t,2026-04-24 22:19:44.746649
+151,Sex on Fire,Kings of Leon,https://open.spotify.com/track/0ntQJM78wzOLVeCUAW7Y45,"",,f,f,t,2026-04-24 22:19:44.807191
+154,In the Meantime,Spacehog,https://open.spotify.com/track/02lTDOxHeXTHsdwXoz6lpC,"",,f,f,t,2026-04-24 22:19:44.994465
+155,"Steady, As She Goes",The Raconteurs,https://open.spotify.com/track/19iqWNzp5LwEdvntpEK8MP,"garage rock,alternative rock",,f,f,t,2026-04-24 22:19:45.059005
+156,Jailbreak,Thin Lizzy,https://open.spotify.com/track/4qbiCq2xkNPyojuZFeNeqx,"classic rock,hard rock",,f,f,t,2026-04-24 22:19:45.123289
+157,Runnin' Down A Dream,Tom Petty,https://open.spotify.com/track/4AiMaeCXwsldpwvA5wu5gM,classic rock,,f,f,t,2026-04-24 22:19:45.184741
+158,Play That Funky Music,Wild Cherry,https://open.spotify.com/track/5uuJruktM9fMdN9Va0DUMl,"",,f,f,t,2026-04-24 22:19:45.251489
+160,Wanted Dead Or Alive,Bon Jovi,https://open.spotify.com/track/0oerlffJSzhRVvtDfLcp3N,glam metal,,f,f,t,2026-04-24 22:19:45.377822
+161,Tennessee Whiskey,Chris Stapleton,https://open.spotify.com/track/3fqwjXwUGN6vbzIwvyFMhx,"country,outlaw country",,f,f,t,2026-04-24 22:19:45.44503
+117,I Want You to Want Me,Cheap Trick,https://open.spotify.com/track/6hnCx2jmD0RPkbtzUXSBn4,"power pop,aor,classic rock,glam rock",,f,f,t,2026-04-24 22:19:42.45493
+120,Long Train Runnin',The Doobie Brothers,https://open.spotify.com/track/27YtiJUAxOWlc4BossxNea,"yacht rock,classic rock,soft rock,southern rock",,f,f,t,2026-04-24 22:19:42.675065
+125,Saturday Night’s Alright (For Fighting),Elton John,https://open.spotify.com/track/12yHvSYFXI7PGzNecUvIDu,"",,f,f,t,2026-04-24 22:19:43.018745
+137,"That Lady, Pt. 1",The Isley Brothers,https://open.spotify.com/track/40hP1whhQvV1PIMvYm4tAy,"motown,quiet storm,soul,classic soul,funk,northern soul",,f,f,t,2026-04-24 22:19:43.837591
+140,Ain't Talkin' 'Bout Love,Van Halen,https://open.spotify.com/track/6fybp4N6eW3bsFAvARxyVe,"glam metal,classic rock,rock,hard rock",,f,f,t,2026-04-24 22:19:44.017126
+144,Song 2,Blur,https://open.spotify.com/track/1FTSo4v6BOZH9QxKc3MbVM,"britpop,madchester,alternative rock",,f,f,t,2026-04-24 22:19:44.276915
+152,Shout It Out Loud,KISS,https://open.spotify.com/track/56sCQC498RMKWi5S8rjBcT,"glam rock,glam metal,hard rock,rock,classic rock",,f,f,t,2026-04-24 22:19:44.868655
+153,Looks That Kill,Mötley Crüe,https://open.spotify.com/track/4wAkqbqhfTMShtMQVagFle,"glam metal,glam rock,hard rock",,f,f,t,2026-04-24 22:19:44.93215
+159,Paranoid,Black Sabbath,https://open.spotify.com/track/1Y373MqadDRtclJNdnUXVc,"metal,heavy metal,rock,stoner rock,doom metal,hard rock",,f,f,t,2026-04-24 22:19:45.315045

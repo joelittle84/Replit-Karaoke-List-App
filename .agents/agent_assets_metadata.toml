@@ -1,0 +1,68 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "q-IjGm905iq97OG-gDwQu"
+uri = "file://exports/database-backup.tar.gz"
+type = "unspecified"
+title = "Full SQL Database Backup (3.3MB)"
+
+[[outputs]]
+id = "ZOuold-GU1-PSBTctnLJZ"
+uri = "file://exports/songs.csv"
+type = "table"
+title = "Songs Catalog (122 songs)"
+
+[[outputs]]
+id = "lmkxSAD3W_gcLau6rI3O1"
+uri = "file://exports/requests.csv"
+type = "table"
+title = "Requests (12 requests)"
+
+[[outputs]]
+id = "9UzYUpKkvkPl35DtQbSul"
+uri = "file://exports/request_songs.csv"
+type = "table"
+title = "Request-Song Links"
+
+[[outputs]]
+id = "24BU31xo5lQUcGJ6fVNLZ"
+uri = "file://exports/settings.csv"
+type = "table"
+title = "Settings (25 key-value pairs)"
+
+[[outputs]]
+id = "8Vh6y0iDmHebPbKjjAOLu"
+uri = "file://exports/guest_musicians.csv"
+type = "table"
+title = "Guest Musicians"
+
+[[outputs]]
+id = "uz3k-VRlro69lsYIGAXBC"
+uri = "file://exports/trivia_sessions.csv"
+type = "table"
+title = "Trivia Sessions"
+
+[[outputs]]
+id = "BBY3CSl3EkIaxITJw9EEX"
+uri = "file://exports/trivia_participants.csv"
+type = "table"
+title = "Trivia Participants"
+
+[[outputs]]
+id = "3ILb3N8etAC7UoeIruLf0"
+uri = "file://exports/pre_signups.csv"
+type = "table"
+title = "Pre-Signups"
+
+[[outputs]]
+id = "TWZ5EkqjVePQm-Xhk5L2s"
+uri = "file://exports/booking_inquiries.csv"
+type = "table"
+title = "Booking Inquiries"
+
+[[outputs]]
+id = "9lCq5r6wmP4DtZyG1mHxD"
+uri = "file://exports/users.csv"
+type = "table"
+title = "Users"
