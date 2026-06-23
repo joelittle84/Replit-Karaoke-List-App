@@ -4,3 +4,10 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
+exports/
+.agents/
+.env
+.env.local
+*.csv
+database-backup.*
+
