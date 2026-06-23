@@ -280,7 +280,7 @@ export default function Home() {
                 else if (s === "full") logoClass = `w-full max-w-3xl mx-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
                 return (
                   <div className="relative inline-block w-full leading-[0] -mb-10">
-                    <div className="absolute inset-0 rounded-full bg-primary/20 blur-3xl scale-150 animate-pulse pointer-events-none" />
+                    <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl scale-125 pointer-events-none" />
                     <img src={logoUrl.value} className={logoClass + " relative z-10"} alt="Logo" />
                   </div>
                 );
