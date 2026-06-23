@@ -274,14 +274,12 @@ export default function Home() {
               if (logoUrl?.value) {
                 const s = logoSize?.value || "medium";
                 const sp = logoSpacing?.value || "medium";
-                const spacingMap: Record<string, string> = { none: "mb-0", small: "mb-1", medium: "mb-2", large: "mb-3" };
-                const spClass = spacingMap[sp] || "mb-2";
-                let logoClass = `h-52 md:h-72 mx-auto ${spClass} drop-shadow-[0_0_30px_rgba(255,255,255,0.15)] logo-pulse`;
-                if (s === "small") logoClass = `h-40 md:h-52 mx-auto ${spClass} drop-shadow-[0_0_20px_rgba(255,255,255,0.12)] logo-pulse`;
-                else if (s === "large") logoClass = `h-64 md:h-96 mx-auto ${spClass} drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
-                else if (s === "full") logoClass = `w-full max-w-3xl mx-auto ${spClass} drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
+                let logoClass = `h-80 md:h-[22rem] mx-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.15)] logo-pulse`;
+                if (s === "small") logoClass = `h-64 md:h-72 mx-auto drop-shadow-[0_0_20px_rgba(255,255,255,0.12)] logo-pulse`;
+                else if (s === "large") logoClass = `h-[28rem] md:h-[32rem] mx-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
+                else if (s === "full") logoClass = `w-full max-w-3xl mx-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
                 return (
-                  <div className="relative inline-block w-full">
+                  <div className="relative inline-block w-full leading-[0] -mb-10">
                     <div className="absolute inset-0 rounded-full bg-primary/20 blur-3xl scale-150 animate-pulse pointer-events-none" />
                     <img src={logoUrl.value} className={logoClass + " relative z-10"} alt="Logo" />
                   </div>
@@ -305,7 +303,7 @@ export default function Home() {
                 </h1>
               );
             })()}
-            <p className="text-muted-foreground font-medium text-lg -mt-1">
+            <p className="text-muted-foreground font-medium text-lg mt-0">
               {businessInfo?.value || "You're the star. We're the band."}
             </p>
           </motion.div>
