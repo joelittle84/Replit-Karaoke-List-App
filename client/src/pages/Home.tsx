@@ -273,33 +273,38 @@ export default function Home() {
               if (logoUrl?.value) {
                 const s = logoSize?.value || "medium";
                 const sp = logoSpacing?.value || "medium";
-                const spacingMap: Record<string, string> = { none: "mb-0", small: "mb-0.5", medium: "mb-1", large: "mb-2" };
-                const spClass = spacingMap[sp] || "mb-1";
-                let logoClass = `h-28 md:h-40 mx-auto ${spClass} drop-shadow-xl`;
-                if (s === "small") logoClass = `h-20 md:h-28 mx-auto ${spClass} drop-shadow-xl`;
-                else if (s === "large") logoClass = `h-40 md:h-56 mx-auto ${spClass} drop-shadow-xl`;
-                else if (s === "full") logoClass = `w-full max-w-lg mx-auto ${spClass} drop-shadow-xl`;
-                return <img src={logoUrl.value} className={logoClass} alt="Logo" />;
+                const spacingMap: Record<string, string> = { none: "mb-2", small: "mb-3", medium: "mb-4", large: "mb-6" };
+                const spClass = spacingMap[sp] || "mb-4";
+                let logoClass = `h-36 md:h-52 mx-auto ${spClass} drop-shadow-[0_0_30px_rgba(255,255,255,0.15)] logo-pulse`;
+                if (s === "small") logoClass = `h-28 md:h-36 mx-auto ${spClass} drop-shadow-[0_0_20px_rgba(255,255,255,0.12)] logo-pulse`;
+                else if (s === "large") logoClass = `h-48 md:h-64 mx-auto ${spClass} drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
+                else if (s === "full") logoClass = `w-full max-w-xl mx-auto ${spClass} drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
+                return (
+                  <div className="relative inline-block">
+                    <div className="absolute inset-0 rounded-full bg-primary/20 blur-3xl scale-150 animate-pulse pointer-events-none" />
+                    <img src={logoUrl.value} className={logoClass + " relative z-10"} alt="Logo" />
+                  </div>
+                );
               }
               if (businessName?.value) {
                 const words = businessName.value.trim().split(/\s+/);
                 const line1 = words.slice(0, 2).join(" ");
                 const line2 = words.slice(2).join(" ");
                 return (
-                  <h1 className="text-4xl md:text-5xl font-display font-black mb-2 leading-tight">
+                  <h1 className="text-5xl md:text-6xl font-display font-black mb-4 leading-tight">
                     <span className="block text-white text-glow-multicolor">{line1}</span>
-                    {line2 && <span className="block text-primary text-glow mt-1">{line2}</span>}
+                    {line2 && <span className="block text-primary text-glow mt-2">{line2}</span>}
                   </h1>
                 );
               }
               return (
-                <h1 className="text-4xl md:text-5xl font-display font-black mb-2">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/70 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">LIVE BAND</span>
-                  <span className="block text-primary text-glow mt-1">KARAOKE</span>
+                <h1 className="text-5xl md:text-6xl font-display font-black mb-4">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/70 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">LIVE BAND</span>
+                  <span className="block text-primary text-glow mt-2">KARAOKE</span>
                 </h1>
               );
             })()}
-            <p className="text-muted-foreground font-medium text-lg">
+            <p className="text-muted-foreground font-medium text-lg mt-2">
               {businessInfo?.value || "You're the star. We're the band."}
             </p>
           </motion.div>
