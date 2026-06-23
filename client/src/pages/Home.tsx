@@ -264,23 +264,24 @@ export default function Home() {
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary/10 to-transparent pointer-events-none" />
         )}
 
-        <div className="max-w-md mx-auto text-center relative z-10">
+        {/* Logo Section - unconstrained width for maximum impact */}
+        <div className="w-full text-center relative z-10 pt-4">
           <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5 }}>
             {(() => {
               if (isLogoLoading) {
-                return <div className="h-28 md:h-40 mx-auto mb-2 animate-pulse bg-white/5 rounded-lg w-full max-w-[280px]" />;
+                return <div className="h-40 md:h-56 mx-auto mb-2 animate-pulse bg-white/5 rounded-lg w-full max-w-[320px]" />;
               }
               if (logoUrl?.value) {
                 const s = logoSize?.value || "medium";
                 const sp = logoSpacing?.value || "medium";
-                const spacingMap: Record<string, string> = { none: "mb-1", small: "mb-2", medium: "mb-3", large: "mb-4" };
-                const spClass = spacingMap[sp] || "mb-3";
-                let logoClass = `h-44 md:h-64 mx-auto ${spClass} drop-shadow-[0_0_30px_rgba(255,255,255,0.15)] logo-pulse`;
-                if (s === "small") logoClass = `h-32 md:h-44 mx-auto ${spClass} drop-shadow-[0_0_20px_rgba(255,255,255,0.12)] logo-pulse`;
-                else if (s === "large") logoClass = `h-56 md:h-80 mx-auto ${spClass} drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
-                else if (s === "full") logoClass = `w-full max-w-2xl mx-auto ${spClass} drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
+                const spacingMap: Record<string, string> = { none: "mb-0", small: "mb-1", medium: "mb-2", large: "mb-3" };
+                const spClass = spacingMap[sp] || "mb-2";
+                let logoClass = `h-52 md:h-72 mx-auto ${spClass} drop-shadow-[0_0_30px_rgba(255,255,255,0.15)] logo-pulse`;
+                if (s === "small") logoClass = `h-40 md:h-52 mx-auto ${spClass} drop-shadow-[0_0_20px_rgba(255,255,255,0.12)] logo-pulse`;
+                else if (s === "large") logoClass = `h-64 md:h-96 mx-auto ${spClass} drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
+                else if (s === "full") logoClass = `w-full max-w-3xl mx-auto ${spClass} drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
                 return (
-                  <div className="relative inline-block">
+                  <div className="relative inline-block w-full">
                     <div className="absolute inset-0 rounded-full bg-primary/20 blur-3xl scale-150 animate-pulse pointer-events-none" />
                     <img src={logoUrl.value} className={logoClass + " relative z-10"} alt="Logo" />
                   </div>
@@ -291,24 +292,27 @@ export default function Home() {
                 const line1 = words.slice(0, 2).join(" ");
                 const line2 = words.slice(2).join(" ");
                 return (
-                  <h1 className="text-5xl md:text-6xl font-display font-black mb-4 leading-tight">
+                  <h1 className="text-6xl md:text-7xl font-display font-black mb-2 leading-tight">
                     <span className="block text-white text-glow-multicolor">{line1}</span>
-                    {line2 && <span className="block text-primary text-glow mt-2">{line2}</span>}
+                    {line2 && <span className="block text-primary text-glow mt-1">{line2}</span>}
                   </h1>
                 );
               }
               return (
-                <h1 className="text-5xl md:text-6xl font-display font-black mb-4">
+                <h1 className="text-6xl md:text-7xl font-display font-black mb-2">
                   <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/70 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">LIVE BAND</span>
-                  <span className="block text-primary text-glow mt-2">KARAOKE</span>
+                  <span className="block text-primary text-glow mt-1">KARAOKE</span>
                 </h1>
               );
             })()}
-            <p className="text-muted-foreground font-medium text-lg">
+            <p className="text-muted-foreground font-medium text-lg -mt-1">
               {businessInfo?.value || "You're the star. We're the band."}
             </p>
           </motion.div>
+        </div>
 
+        {/* Content Section - constrained width */}
+        <div className="max-w-md mx-auto text-center relative z-10">
           {/* Action buttons */}
           <div className="flex flex-wrap justify-center gap-2 mt-6">
             {preSignupConfig?.isOpen && (
