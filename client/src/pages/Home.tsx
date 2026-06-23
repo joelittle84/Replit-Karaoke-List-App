@@ -11,7 +11,7 @@ import { NeonButton } from "@/components/NeonButton";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { Search, Mic2, Music2, X, ListMusic, User, CheckCircle2, Check, Guitar, QrCode, DollarSign, Clock, Trophy, Sparkles, Users, CalendarCheck, BookOpen } from "lucide-react";
+import { Search, Mic2, Music2, X, ListMusic, User, CheckCircle2, Check, Guitar, QrCode, DollarSign, Clock, Trophy, Sparkles, Users, CalendarCheck, BookOpen, Plus } from "lucide-react";
 import { Song, TriviaSessionPublic } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { AnimatePresence, motion } from "framer-motion";
@@ -363,7 +363,17 @@ export default function Home() {
                 value={search}
                 onChange={e => setSearch(e.target.value)}
                 data-testid="input-song-search"
+                autoFocus
               />
+              {search && (
+                <button
+                  onClick={() => setSearch("")}
+                  className="absolute inset-y-0 right-3 flex items-center text-muted-foreground hover:text-white transition-colors"
+                  data-testid="button-clear-search"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              )}
             </div>
             {(artists.length > 0 || genres.length > 0) && (
               <div className="grid grid-cols-2 gap-2">
@@ -371,7 +381,10 @@ export default function Home() {
                   value={artistFilter}
                   onChange={e => setArtistFilter(e.target.value)}
                   data-testid="select-artist-filter"
-                  className="w-full h-9 px-3 bg-white/5 border border-white/10 rounded-xl text-sm text-white/80 appearance-none cursor-pointer focus:outline-none focus:border-primary/50"
+                  className={cn(
+                    "w-full h-9 px-3 bg-white/5 border rounded-xl text-sm appearance-none cursor-pointer focus:outline-none focus:border-primary/50",
+                    artistFilter !== "all" ? "border-primary/50 text-white" : "border-white/10 text-white/80"
+                  )}
                 >
                   <option value="all">All Artists</option>
                   {artists.map(a => <option key={a} value={a}>{a}</option>)}
@@ -380,7 +393,10 @@ export default function Home() {
                   value={genreFilter}
                   onChange={e => setGenreFilter(e.target.value)}
                   data-testid="select-genre-filter"
-                  className="w-full h-9 px-3 bg-white/5 border border-white/10 rounded-xl text-sm text-white/80 appearance-none cursor-pointer focus:outline-none focus:border-primary/50"
+                  className={cn(
+                    "w-full h-9 px-3 bg-white/5 border rounded-xl text-sm appearance-none cursor-pointer focus:outline-none focus:border-primary/50",
+                    genreFilter !== "all" ? "border-primary/50 text-white" : "border-white/10 text-white/80"
+                  )}
                 >
                   <option value="all">All Genres</option>
                   {genres.map(g => <option key={g} value={g!}>{g}</option>)}
@@ -499,7 +515,7 @@ export default function Home() {
                   )}
                   <Input value={preSignupSearch} onChange={e => setPreSignupSearch(e.target.value)} placeholder="Search songs..." className="bg-black/40 border-white/10 text-sm" />
                   {preSignupSearch.trim() && (
-                    <div className="max-h-40 overflow-y-auto space-y-1 rounded-lg border border-white/10 bg-black/30 p-1">
+                    <div className="max-h-60 overflow-y-auto space-y-1 rounded-lg border border-white/10 bg-black/30 p-1">
                       {(allSongs || []).filter(s => s.title.toLowerCase().includes(preSignupSearch.toLowerCase()) || s.artist.toLowerCase().includes(preSignupSearch.toLowerCase())).slice(0, 20).map(s => {
                         const picked = !!preSignupSongs.find(ps => ps.id === s.id);
                         return (
@@ -805,6 +821,13 @@ export default function Home() {
                 <span>You're first in line — get ready!</span>
               </div>
             )}
+            <NeonButton
+              onClick={() => { setShowSuccess(false); setSelectedSongs([]); setParticipantName(""); }}
+              className="w-full"
+              data-testid="button-request-another"
+            >
+              <Plus className="w-4 h-4 mr-2" /> Request Another Song
+            </NeonButton>
           </div>
           <div className="pt-4">
             <NeonButton onClick={() => setShowSuccess(false)} variant="outline" className="w-full">Close</NeonButton>
