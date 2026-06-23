@@ -16,6 +16,7 @@ import { Song, TriviaSessionPublic } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "wouter";
+import { hapticLight, hapticSuccess, hapticError } from "@/lib/haptic";
 import { QRCodeSVG } from "qrcode.react";
 import { cn } from "@/lib/utils";
 
@@ -139,12 +140,15 @@ export default function Home() {
   const handleToggleSong = (song: Song) => {
     if (selectedSongs.find(s => s.id === song.id)) {
       setSelectedSongs(prev => prev.filter(s => s.id !== song.id));
+      hapticLight();
     } else {
       if (selectedSongs.length >= 3) {
         toast({ title: "Limit Reached", description: "You can only select up to 3 songs.", variant: "destructive" });
+        hapticError();
         return;
       }
       setSelectedSongs(prev => [...prev, song]);
+      hapticLight();
     }
   };
 
@@ -161,9 +165,11 @@ export default function Home() {
         setShowSuccess(true);
         setSelectedSongs([]);
         setParticipantName("");
+        hapticSuccess();
       },
       onError: (err) => {
         toast({ title: "Submission Failed", description: err.message || "Could not submit request. Try again.", variant: "destructive" });
+        hapticError();
       }
     });
   };

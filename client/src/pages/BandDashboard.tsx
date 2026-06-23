@@ -25,6 +25,8 @@ import {
 import { format } from "date-fns";
 import { useToast } from "@/hooks/use-toast";
 import { useEffect, useState, useRef } from "react";
+import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts";
+import { hapticLight, hapticMedium, hapticSuccess } from "@/lib/haptic";
 import TipTapEditor from "@/components/TipTapEditor";
 import { RequestWithSongs, TriviaSessionPublic } from "@shared/schema";
 import { cn } from "@/lib/utils";
@@ -104,6 +106,18 @@ export default function BandDashboard() {
   const { user, isLoading: authLoading } = useAuth();
   const [bandAuthed, setBandAuthed] = useState<boolean | null>(null);
   const [authMethod, setAuthMethod] = useState<"replit" | "pin" | null>(null);
+  const [activeTab, setActiveTab] = useState("queue");
+
+  // Keyboard shortcuts for dashboard tabs
+  useKeyboardShortcuts({
+    "ctrl+1": () => { setActiveTab("queue"); hapticLight(); },
+    "ctrl+2": () => { setActiveTab("musicians"); hapticLight(); },
+    "ctrl+3": () => { setActiveTab("songs"); hapticLight(); },
+    "ctrl+4": () => { setActiveTab("presignup"); hapticLight(); },
+    "ctrl+5": () => { setActiveTab("trivia"); hapticLight(); },
+    "ctrl+6": () => { setActiveTab("booking"); hapticLight(); },
+    "ctrl+7": () => { setActiveTab("settings"); hapticLight(); },
+  });
 
   // Check band auth status (Replit OR PIN session)
   useEffect(() => {
@@ -159,7 +173,7 @@ export default function BandDashboard() {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="queue" className="space-y-6">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="bg-transparent border-0 p-0 h-auto flex-col gap-2 items-stretch">
             {/* Primary actions — large, easy to tap during the show */}
             <div className="grid grid-cols-2 gap-2">
@@ -876,7 +890,7 @@ function GuestMusicianManager() {
   const [dismissed, setDismissed] = useState<Set<number>>(new Set());
 
   const handleStatus = (id: number, status: string) => {
-    updateStatus({ id, status }, { onSuccess: () => toast({ title: `Signup ${status}` }) });
+    updateStatus({ id, status }, { onSuccess: () => { toast({ title: `Signup ${status}` }); hapticSuccess(); } });
   };
 
   const handleDismiss = (id: number) => {
@@ -1135,11 +1149,11 @@ function QueueView() {
   const { toast } = useToast();
 
   const handleStatus = (id: number, status: 'approved' | 'completed' | 'rejected') => {
-    updateStatus({ id, status }, { onSuccess: () => toast({ title: `Request ${status}` }) });
+    updateStatus({ id, status }, { onSuccess: () => { toast({ title: `Request ${status}` }); hapticSuccess(); } });
   };
 
   const handleRemoveSong = (requestId: number, songId: number, songTitle: string) => {
-    removeSong({ requestId, songId }, { onSuccess: () => toast({ title: `"${songTitle}" removed from request` }) });
+    removeSong({ requestId, songId }, { onSuccess: () => { toast({ title: `"${songTitle}" removed from request` }); hapticLight(); } });
   };
 
   if (isLoading) return <div className="text-center py-12"><Loader2 className="w-8 h-8 animate-spin mx-auto opacity-50" /></div>;
