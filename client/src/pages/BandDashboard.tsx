@@ -189,21 +189,21 @@ export default function BandDashboard() {
                 <Guitar className="w-5 h-5 mr-2" /> Musicians
               </TabsTrigger>
             </div>
-            {/* Secondary actions — scrollable on mobile, full on desktop */}
-            <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-              <TabsTrigger value="songs" className="data-[state=active]:bg-white/15 data-[state=active]:text-white bg-white/5 border border-white/10 rounded-lg py-2.5 px-4 text-sm font-medium whitespace-nowrap flex-shrink-0 min-w-[80px] flex-1 justify-center">
+            {/* Secondary actions — 2-row grid on mobile, single row on desktop */}
+            <div className="grid grid-cols-3 md:flex gap-1.5">
+              <TabsTrigger value="songs" className="data-[state=active]:bg-white/15 data-[state=active]:text-white bg-white/5 border border-white/10 rounded-lg py-2.5 px-2 text-sm font-medium whitespace-nowrap min-w-0 flex-1 justify-center">
                 <Music className="w-4 h-4 mr-1.5" /> Songs
               </TabsTrigger>
-              <TabsTrigger value="presignup" className="data-[state=active]:bg-white/15 data-[state=active]:text-white bg-white/5 border border-white/10 rounded-lg py-2.5 px-4 text-sm font-medium whitespace-nowrap flex-shrink-0 min-w-[80px] flex-1 justify-center">
+              <TabsTrigger value="presignup" className="data-[state=active]:bg-white/15 data-[state=active]:text-white bg-white/5 border border-white/10 rounded-lg py-2.5 px-2 text-sm font-medium whitespace-nowrap min-w-0 flex-1 justify-center">
                 <CalendarCheck className="w-4 h-4 mr-1.5" /> Pre-Signup
               </TabsTrigger>
-              <TabsTrigger value="trivia" className="data-[state=active]:bg-white/15 data-[state=active]:text-white bg-white/5 border border-white/10 rounded-lg py-2.5 px-4 text-sm font-medium whitespace-nowrap flex-shrink-0 min-w-[80px] flex-1 justify-center">
+              <TabsTrigger value="trivia" className="data-[state=active]:bg-white/15 data-[state=active]:text-white bg-white/5 border border-white/10 rounded-lg py-2.5 px-2 text-sm font-medium whitespace-nowrap min-w-0 flex-1 justify-center">
                 <Trophy className="w-4 h-4 mr-1.5" /> Trivia
               </TabsTrigger>
-              <TabsTrigger value="booking" className="data-[state=active]:bg-white/15 data-[state=active]:text-white bg-white/5 border border-white/10 rounded-lg py-2.5 px-4 text-sm font-medium whitespace-nowrap flex-shrink-0 min-w-[80px] flex-1 justify-center">
+              <TabsTrigger value="booking" className="data-[state=active]:bg-white/15 data-[state=active]:text-white bg-white/5 border border-white/10 rounded-lg py-2.5 px-2 text-sm font-medium whitespace-nowrap min-w-0 flex-1 justify-center col-span-1 md:col-auto">
                 <Briefcase className="w-4 h-4 mr-1.5" /> Booking
               </TabsTrigger>
-              <TabsTrigger value="settings" className="data-[state=active]:bg-white/15 data-[state=active]:text-white bg-white/5 border border-white/10 rounded-lg py-2.5 px-4 text-sm font-medium whitespace-nowrap flex-shrink-0 min-w-[80px] flex-1 justify-center">
+              <TabsTrigger value="settings" className="data-[state=active]:bg-white/15 data-[state=active]:text-white bg-white/5 border border-white/10 rounded-lg py-2.5 px-2 text-sm font-medium whitespace-nowrap min-w-0 flex-1 justify-center col-span-2 md:col-auto">
                 <SettingsIcon className="w-4 h-4 mr-1.5" /> Settings
               </TabsTrigger>
             </div>
