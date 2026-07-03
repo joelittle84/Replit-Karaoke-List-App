@@ -88,7 +88,7 @@ export default function TipTapEditor({ value, onChange, placeholder }: TipTapEdi
     const current = editor.getHTML();
     if (value !== current && value !== lastSavedRef.current) {
       lastSavedRef.current = value;
-      editor.commands.setContent(value, false);
+      editor.commands.setContent(value, { emitUpdate: false });
     }
   }, [editor, value]);
 
