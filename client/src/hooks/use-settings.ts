@@ -18,7 +18,10 @@ export function useUpdateSetting() {
         body: JSON.stringify({ value }),
         credentials: 'include',
       });
-      if (!res.ok) throw new Error("Failed to update setting");
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`${res.status}: ${text}`);
+      }
       return res.json();
     },
     onSuccess: (_, { key }) => {

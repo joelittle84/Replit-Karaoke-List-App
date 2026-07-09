@@ -1558,8 +1558,13 @@ function BookingManager() {
   const { mutateAsync: updateSettingAsyncBooking } = useUpdateSetting();
 
   const save = async (key: string, value: string) => {
-    await updateSettingAsyncBooking({ key, value });
-    toast({ title: "Saved" });
+    try {
+      await updateSettingAsyncBooking({ key, value });
+      toast({ title: "Saved" });
+    } catch (err: any) {
+      toast({ title: "Error saving", description: err.message || "Failed to save", variant: "destructive" });
+      throw err;
+    }
   };
 
   const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
