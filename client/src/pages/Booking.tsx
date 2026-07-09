@@ -92,7 +92,14 @@ export default function Booking() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white relative">
+      {/* Subtle golden stage light background */}
+      <div
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-30 pointer-events-none z-0"
+        style={{ backgroundImage: "url(/stage-bg-booking.jpg)" }}
+      />
+      <div className="fixed inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90 pointer-events-none z-0" />
+
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-md">
         <div className="max-w-3xl mx-auto px-4 h-14 flex items-center gap-3">

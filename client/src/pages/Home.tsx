@@ -230,7 +230,13 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen pb-32">
+    <div className="min-h-screen pb-32 relative">
+      {/* Subtle stage light background */}
+      <div
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none z-0"
+        style={{ backgroundImage: "url(/stage-bg-songs.jpg)" }}
+      />
+      <div className="fixed inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/90 pointer-events-none z-0" />
       {/* Hero */}
       <header className="relative pt-12 pb-8 px-4 overflow-hidden min-h-[300px] flex flex-col justify-center">
         {/* Booking button — top left */}
