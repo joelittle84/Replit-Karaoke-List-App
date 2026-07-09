@@ -95,7 +95,7 @@ export default function Booking() {
     <div className="min-h-screen bg-black text-white relative">
       {/* Subtle golden stage light background */}
       <div
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-30 pointer-events-none z-0"
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-40 pointer-events-none z-0"
         style={{ backgroundImage: "url(/stage-bg-booking.jpg)" }}
       />
       <div className="fixed inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90 pointer-events-none z-0" />
