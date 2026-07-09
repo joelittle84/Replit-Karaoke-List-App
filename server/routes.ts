@@ -498,7 +498,7 @@ export async function registerRoutes(httpServer: Server, app: Express): Promise<
   // === Booking ===
   // Public: get booking page content
   app.get("/api/booking/page", async (req, res) => {
-    const [enabled, title, bio, photos, videos, genres, performanceInfo, email] = await Promise.all([
+    const [enabled, title, bio, photos, videos, genres, performanceInfo, email, photoDisplay] = await Promise.all([
       storage.getSetting("booking_enabled"),
       storage.getSetting("booking_title"),
       storage.getSetting("booking_bio"),
@@ -507,6 +507,7 @@ export async function registerRoutes(httpServer: Server, app: Express): Promise<
       storage.getSetting("booking_genres"),
       storage.getSetting("booking_performance_info"),
       storage.getSetting("booking_email"),
+      storage.getSetting("booking_photo_display"),
     ]);
     res.json({
       enabled: enabled === "true",
@@ -517,6 +518,7 @@ export async function registerRoutes(httpServer: Server, app: Express): Promise<
       genres: genres || "",
       performanceInfo: performanceInfo || "",
       email: email || "",
+      photoDisplay: photoDisplay || "carousel",
     });
   });
 

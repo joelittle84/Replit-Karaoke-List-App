@@ -16,6 +16,7 @@ export function useUpdateSetting() {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ value }),
+        credentials: 'include',
       });
       if (!res.ok) throw new Error("Failed to update setting");
       return res.json();
