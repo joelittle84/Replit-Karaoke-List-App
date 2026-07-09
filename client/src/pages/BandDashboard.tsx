@@ -1738,8 +1738,8 @@ function BookingManager() {
                 className="bg-black/40 border-white/10 w-36"
                 data-testid="input-video-title"
               />
-              <NeonButton variant="outline" size="sm" onClick={addVideo} data-testid="button-add-video">
-                <Plus className="w-4 h-4" />
+              <NeonButton variant="primary" size="sm" onClick={addVideo} data-testid="button-add-video">
+                <Plus className="w-4 h-4" /> Add
               </NeonButton>
             </div>
           </div>
