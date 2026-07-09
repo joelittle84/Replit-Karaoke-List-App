@@ -1,5 +1,34 @@
 uploads = []
-generated = []
+
+[[generated]]
+id = "7Lcw2aFs3gbeJXDpyiWLp"
+uri = "file://attached_assets/stage_lights_purple.png"
+type = "image"
+title = "purple stage lights"
+
+[[generated]]
+id = "7rbApUS3ZlIMRTxdVK-rE"
+uri = "file://attached_assets/stage_lights_warm.png"
+type = "image"
+title = "warm stage lights"
+
+[[generated]]
+id = "wdK6cC3n6BDz1dl3ptNLE"
+uri = "file://attached_assets/stage_lights_single.png"
+type = "image"
+title = "single spotlight"
+
+[[generated]]
+id = "FtAoHYiLPWxPE3dbXXTo2"
+uri = "file://attached_assets/stage_lights_gold.png"
+type = "image"
+title = "gold stage lights"
+
+[[generated]]
+id = "unVVNjJgFGPPgSVPPTA33"
+uri = "file://attached_assets/stage_lights_cool.png"
+type = "image"
+title = "cool white stage lights"
 
 [[outputs]]
 id = "q-IjGm905iq97OG-gDwQu"
@@ -66,3 +95,33 @@ id = "9lCq5r6wmP4DtZyG1mHxD"
 uri = "file://exports/users.csv"
 type = "table"
 title = "Users"
+
+[[outputs]]
+id = "Z7jmOu2MB75B4wV-xQ85v"
+uri = "file://attached_assets/stage_lights_purple.png"
+type = "image"
+title = "Song List: Purple/Blue Spotlights"
+
+[[outputs]]
+id = "w2YdLO9udnlB0xJ8SNOH2"
+uri = "file://attached_assets/stage_lights_warm.png"
+type = "image"
+title = "Song List: Warm Amber + Blue"
+
+[[outputs]]
+id = "Civ-t6deaf_egY4fax1Mj"
+uri = "file://attached_assets/stage_lights_single.png"
+type = "image"
+title = "Song List: Single Spotlight"
+
+[[outputs]]
+id = "g97HAO3ZwKUbaa7VJG9p6"
+uri = "file://attached_assets/stage_lights_gold.png"
+type = "image"
+title = "Booking: Golden Spotlights"
+
+[[outputs]]
+id = "cyCZuRwxr4XyFUSn6S7T7"
+uri = "file://attached_assets/stage_lights_cool.png"
+type = "image"
+title = "Booking: Cool White/Silver"
