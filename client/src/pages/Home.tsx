@@ -233,7 +233,7 @@ export default function Home() {
     <div className="min-h-screen pb-32 relative">
       {/* Subtle stage light background */}
       <div
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-30 pointer-events-none z-0"
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-40 pointer-events-none z-0"
         style={{ backgroundImage: "url(/stage-bg-songs.jpg)" }}
       />
       <div className="fixed inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/90 pointer-events-none z-0" />

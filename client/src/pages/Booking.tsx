@@ -95,7 +95,7 @@ export default function Booking() {
     <div className="min-h-screen bg-black text-white relative">
       {/* Subtle golden stage light background */}
       <div
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-40 pointer-events-none z-0"
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-50 pointer-events-none z-0"
         style={{ backgroundImage: "url(/stage-bg-booking.jpg)" }}
       />
       <div className="fixed inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90 pointer-events-none z-0" />
@@ -154,14 +154,14 @@ export default function Booking() {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {page.photos.map((photo, i) => (
                   <button key={i} onClick={() => { setActivePhoto(i); setShowLightbox(true); }} className="aspect-square rounded-xl overflow-hidden bg-white/5 border border-white/10">
-                    <img src={photo} alt={`Photo ${i + 1}`} className="w-full h-full object-cover" />
+                    <img src={photo} alt={`Photo ${i + 1}`} className="w-full h-full object-contain bg-black/50" />
                   </button>
                 ))}
               </div>
             ) : (
               <>
                 <div className={`relative rounded-2xl overflow-hidden bg-white/5 border border-white/10 ${displayMode === "portrait" ? "aspect-[3/4]" : "aspect-video"}`}>
-                  <img src={page.photos[activePhoto]} alt={`Photo ${activePhoto + 1}`} className="w-full h-full object-cover" />
+                  <img src={page.photos[activePhoto]} alt={`Photo ${activePhoto + 1}`} className="w-full h-full object-contain bg-black/50" />
                   {page.photos.length > 1 && (
                     <>
                       <button onClick={() => setActivePhoto(i => (i - 1 + page.photos.length) % page.photos.length)} className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 rounded-full p-2 transition-colors"><ArrowLeft className="w-4 h-4" /></button>
@@ -178,7 +178,7 @@ export default function Booking() {
                   <div className="flex gap-2 mt-3 overflow-x-auto pb-1">
                     {page.photos.map((photo, i) => (
                       <button key={i} onClick={() => setActivePhoto(i)} className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${i === activePhoto ? "border-primary" : "border-white/10 opacity-60"}`}>
-                        <img src={photo} alt="" className="w-full h-full object-cover" />
+                        <img src={photo} alt="" className="w-full h-full object-contain bg-black/50" />
                       </button>
                     ))}
                   </div>
@@ -192,7 +192,7 @@ export default function Booking() {
         {page.videos.length > 0 && (
           <motion.section initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
             <h2 className="text-lg font-display font-bold mb-4 flex items-center gap-2">
-              <Play className="w-5 h-5 text-red-400" /> Watch Us Perform
+              <Play className="w-5 h-5 text-red-400" /> Videos
             </h2>
             <div className="space-y-4">
               {page.videos.map((v, i) => {
