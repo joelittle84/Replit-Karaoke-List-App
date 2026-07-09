@@ -19,6 +19,7 @@ import { Link } from "wouter";
 import { hapticLight, hapticSuccess, hapticError } from "@/lib/haptic";
 import { QRCodeSVG } from "qrcode.react";
 import { cn } from "@/lib/utils";
+import { DownloadQRButton } from "@/components/DownloadQRButton";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -296,14 +297,14 @@ export default function Home() {
                 const line1 = words.slice(0, 2).join(" ");
                 const line2 = words.slice(2).join(" ");
                 return (
-                  <h1 className="text-6xl md:text-7xl font-display font-black mb-2 leading-tight">
+                  <h1 className="text-6xl md:text-7xl font-neon mb-2 leading-tight tracking-wider">
                     <span className="block text-white text-glow-multicolor">{line1}</span>
                     {line2 && <span className="block text-primary text-glow mt-1">{line2}</span>}
                   </h1>
                 );
               }
               return (
-                <h1 className="text-6xl md:text-7xl font-display font-black mb-2">
+                <h1 className="text-6xl md:text-7xl font-neon mb-2 leading-tight tracking-wider">
                   <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/70 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">LIVE BAND</span>
                   <span className="block text-primary text-glow mt-1">KARAOKE</span>
                 </h1>
@@ -605,16 +606,28 @@ export default function Home() {
 
       {/* QR Dialog */}
       <Dialog open={showQR} onOpenChange={setShowQR}>
-        <DialogContent className="bg-card border-white/10 text-center sm:max-w-sm">
+        <DialogContent className="bg-card border-white/10 text-center sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="text-2xl font-display">Share This Show</DialogTitle>
             <DialogDescription>Let others scan to request songs!</DialogDescription>
           </DialogHeader>
-          <div className="flex flex-col items-center justify-center p-6 space-y-4">
-            <div className="p-4 bg-white rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-              <QRCodeSVG value={shareUrl} size={200} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+            {/* Current domain QR */}
+            <div className="flex flex-col items-center space-y-2">
+              <div className="p-3 bg-white rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                <QRCodeSVG value={shareUrl} size={160} />
+              </div>
+              <p className="text-xs text-muted-foreground break-all text-center">{shareUrl}</p>
+              <DownloadQRButton url={shareUrl} label="Current" />
             </div>
-            <p className="text-xs text-muted-foreground break-all">{shareUrl}</p>
+            {/* gp-karaoke.com QR */}
+            <div className="flex flex-col items-center space-y-2">
+              <div className="p-3 bg-white rounded-xl shadow-[0_0_20px_rgba(74,222,128,0.2)] border border-green-400/20">
+                <QRCodeSVG value="https://gp-karaoke.com/" size={160} />
+              </div>
+              <p className="text-xs text-muted-foreground break-all text-center">gp-karaoke.com</p>
+              <DownloadQRButton url="https://gp-karaoke.com/" label="GP-Karaoke" />
+            </div>
           </div>
           <NeonButton onClick={() => setShowQR(false)} variant="outline" className="w-full">Close</NeonButton>
         </DialogContent>

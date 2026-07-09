@@ -31,6 +31,7 @@ import TipTapEditor from "@/components/TipTapEditor";
 import { RequestWithSongs, TriviaSessionPublic } from "@shared/schema";
 import { cn } from "@/lib/utils";
 import { QRCodeSVG } from "qrcode.react";
+import { DownloadQRButton } from "@/components/DownloadQRButton";
 import Papa from "papaparse";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useQuery, useMutation } from "@tanstack/react-query";
@@ -319,27 +320,55 @@ function SettingsView({ shareUrl }: { shareUrl: string }) {
         </CardContent>
       </Card>
 
-      <Card className="bg-card border-white/10">
-        <CardHeader><CardTitle className="flex items-center gap-2"><QrCode className="w-5 h-5 text-primary" /> Share Your Show</CardTitle></CardHeader>
-        <CardContent className="flex flex-col items-center p-8 space-y-4">
-          <div className="p-4 bg-white rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.1)]"><QRCodeSVG value={shareUrl} size={200} /></div>
-          <p className="text-sm text-muted-foreground" data-testid="text-share-url">{shareUrl}</p>
-          <p className="text-xs text-muted-foreground/70 text-center">Public-facing fan page · safe to print on table tents and posters</p>
-        </CardContent>
-      </Card>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Public QR - Current Domain */}
+        <Card className="bg-card border-white/10">
+          <CardHeader><CardTitle className="flex items-center gap-2"><QrCode className="w-5 h-5 text-primary" /> Share Your Show</CardTitle></CardHeader>
+          <CardContent className="flex flex-col items-center p-6 space-y-3">
+            <div className="p-3 bg-white rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.1)]"><QRCodeSVG value={shareUrl} size={160} /></div>
+            <p className="text-xs text-muted-foreground text-center break-all" data-testid="text-share-url">{shareUrl}</p>
+            <DownloadQRButton url={shareUrl} label="Current" />
+            <p className="text-xs text-muted-foreground/70 text-center">Public-facing fan page · safe to print</p>
+          </CardContent>
+        </Card>
 
-      <Card className="bg-card border-purple-500/30">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-purple-300"><QrCode className="w-5 h-5" /> Band Dashboard (Private)</CardTitle>
-        </CardHeader>
-        <CardContent className="flex flex-col items-center p-8 space-y-4">
-          <div className="p-4 bg-white rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.25)]"><QRCodeSVG value={`${window.location.origin}/band`} size={200} /></div>
-          <p className="text-sm text-muted-foreground font-mono" data-testid="text-band-url">{window.location.origin}/band</p>
-          <p className="text-xs text-muted-foreground/70 text-center max-w-xs">
-            Scan this from another phone or share with bandmates. They'll be prompted for the access PIN — set it below in the PIN section.
-          </p>
-        </CardContent>
-      </Card>
+        {/* Public QR - gp-karaoke.com */}
+        <Card className="bg-card border-green-500/30">
+          <CardHeader><CardTitle className="flex items-center gap-2 text-green-300"><QrCode className="w-5 h-5" /> gp-karaoke.com</CardTitle></CardHeader>
+          <CardContent className="flex flex-col items-center p-6 space-y-3">
+            <div className="p-3 bg-white rounded-xl shadow-[0_0_20px_rgba(74,222,128,0.2)]"><QRCodeSVG value="https://gp-karaoke.com/" size={160} /></div>
+            <p className="text-xs text-muted-foreground text-center">gp-karaoke.com</p>
+            <DownloadQRButton url="https://gp-karaoke.com/" label="GP-Karaoke" />
+            <p className="text-xs text-muted-foreground/70 text-center">Your custom domain · print & share</p>
+          </CardContent>
+        </Card>
+
+        {/* Band Dashboard QR - Current Domain */}
+        <Card className="bg-card border-purple-500/30">
+          <CardHeader><CardTitle className="flex items-center gap-2 text-purple-300"><QrCode className="w-5 h-5" /> Band Dashboard</CardTitle></CardHeader>
+          <CardContent className="flex flex-col items-center p-6 space-y-3">
+            <div className="p-3 bg-white rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.25)]"><QRCodeSVG value={`${window.location.origin}/band`} size={160} /></div>
+            <p className="text-xs text-muted-foreground font-mono text-center" data-testid="text-band-url">{window.location.origin}/band</p>
+            <DownloadQRButton url={`${window.location.origin}/band`} label="Dashboard-Current" />
+            <p className="text-xs text-muted-foreground/70 text-center max-w-xs">
+              Scan from another phone or share with bandmates. They'll need the PIN below.
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Band Dashboard QR - gp-karaoke.com */}
+        <Card className="bg-card border-purple-500/30">
+          <CardHeader><CardTitle className="flex items-center gap-2 text-purple-300"><QrCode className="w-5 h-5" /> Dashboard (gp-karaoke.com)</CardTitle></CardHeader>
+          <CardContent className="flex flex-col items-center p-6 space-y-3">
+            <div className="p-3 bg-white rounded-xl shadow-[0_0_20px_rgba(168,85,247,0.25)]"><QRCodeSVG value="https://gp-karaoke.com/band" size={160} /></div>
+            <p className="text-xs text-muted-foreground font-mono text-center">gp-karaoke.com/band</p>
+            <DownloadQRButton url="https://gp-karaoke.com/band" label="Dashboard-GP" />
+            <p className="text-xs text-muted-foreground/70 text-center max-w-xs">
+              Custom domain dashboard link · requires PIN.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
 
       {!isOwner && (
         <Card className="bg-card border-yellow-500/30">
