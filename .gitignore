@@ -1,13 +1,54 @@
-node_modules
-dist
+# Dependencies
+node_modules/
+
+# Build output and generated runtime files
+dist/
+build/
+server/public/
+.vite/
+.turbo/
+coverage/
+
+# Replit and local tooling caches/state
+.cache/
+.local/state/
+.upm/
+
+# Operating-system/editor files
 .DS_Store
-server/public
-vite.config.ts.*
-*.tar.gz
-exports/
-.agents/
+Thumbs.db
+*.swp
+*.swo
+
+# Local environment files and credentials
 .env
-.env.local
-*.csv
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+
+# Temporary archives, logs, and test output
+*.tar.gz
+*.zip
+*.log
+tmp/
+temp/
+
+# Local exports and database dumps.
+# Live database contents must be exported and secured separately.
+exports/
 database-backup.*
+*.dump
+*.sql.gz
+*.csv
+
+# Generated Vite config variants
+vite.config.ts.*
+
+# Preview screenshots are not application assets
+screenshots/
 
