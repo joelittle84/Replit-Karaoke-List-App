@@ -5,3 +5,4 @@
 - [Haptic Feedback Integration](haptics.md) — Navigator.vibrate patterns for key actions
 - [Settings Save Authentication](settings-auth.md) — `credentials: 'include'` required on all protected fetch calls
 - [Replit Database Sync](replit-db-sync.md) — "Copy dev database to production" checkbox in Deployment settings
+- [Production Export Limits](production-export.md) — Large text/blob-like settings must be exported in small read-only chunks
