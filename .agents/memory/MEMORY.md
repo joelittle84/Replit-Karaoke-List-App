@@ -6,3 +6,4 @@
 - [Settings Save Authentication](settings-auth.md) — `credentials: 'include'` required on all protected fetch calls
 - [Replit Database Sync](replit-db-sync.md) — "Copy dev database to production" checkbox in Deployment settings
 - [Production Export Limits](production-export.md) — Large text/blob-like settings must be exported in small read-only chunks
+- [Railway Production Lockfiles](railway-production-lockfiles.md) — npm production installs prune transitive build tools when lockfile dev flags remain stale
