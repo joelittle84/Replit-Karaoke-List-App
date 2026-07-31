@@ -1,6 +1,7 @@
 import type { Express, RequestHandler } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { ensureDatabaseSchema } from "./db";
 import { api } from "@shared/routes";
 import { setupAuth, registerAuthRoutes, isAuthenticated } from "./replit_integrations/auth";
 import { encrypt, decrypt } from "./crypto";
@@ -54,6 +55,7 @@ async function fetchTriviaQuestions(count: number = 4): Promise<any[]> {
 }
 
 export async function registerRoutes(httpServer: Server, app: Express): Promise<Server> {
+  await ensureDatabaseSchema();
   await setupAuth(app);
   registerAuthRoutes(app);
 
