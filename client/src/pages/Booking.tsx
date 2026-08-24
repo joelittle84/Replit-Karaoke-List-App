@@ -34,24 +34,28 @@ interface ExperienceOption {
 
 type IconProps = { className?: string };
 
+function BookingAssetIcon({ src, className }: IconProps & { src: string }) {
+  return <span aria-hidden="true" className={`inline-block bg-current ${className ?? ""}`} style={{ WebkitMask: `url(${src}) center / contain no-repeat`, mask: `url(${src}) center / contain no-repeat` }} />;
+}
+
 function PalmTreeIcon({ className }: IconProps) {
   return <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="M16 28c.7-6.7.3-12.2-1.3-16.4" /><path d="M14.7 11.6C10.1 8.3 6.2 9 3.5 12c4.6-.3 7.7.9 10.2 3.2" /><path d="M15 11.8C10.8 6.9 7 6.2 3.3 7.8c4.5 1.1 7.2 3.1 9.4 6" /><path d="M15.3 11.7C14.4 6.2 16.4 3 20 2c-1.9 4.1-2 7.3-1 10.4" /><path d="M16.2 11.8c4.1-4.5 8.1-4.4 11.6-2.3-4.7.4-7.7 2.1-10 4.9" /><path d="M18 13.6c4.4-1.8 7.7-.4 9.8 2.6-4.1-1.1-7.3-.6-10.3 1.1" /><path d="M10 28h12" /></svg>;
 }
 
 function HandheldMicrophoneIcon({ className }: IconProps) {
-  return <svg viewBox="0 0 64 96" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><g transform="rotate(24 32 48)"><rect x="22" y="7" width="20" height="35" rx="10" /><path d="M22 16h20M22 22h20M24 29h16M32 42v39M24 81h16" /><path d="M18 31v3c0 8 6 14 14 14s14-6 14-14v-3" /></g></svg>;
+  return <img src="/booking-icons/inquiry-microphone-approved.png" alt="" aria-hidden="true" className={`object-contain ${className ?? ""}`} />;
 }
 
 function DrumKitIcon({ className }: IconProps) {
-  return <svg viewBox="0 0 48 40" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><circle cx="24" cy="25" r="10" /><circle cx="24" cy="25" r="3" /><ellipse cx="14" cy="17" rx="5" ry="3.5" /><ellipse cx="27" cy="14" rx="5" ry="3.5" /><path d="M18 18.5 20 21M23 16.5l-2 4M34 25h6v-7h-6M12 20.5V31M17 33l-4 6m18-6 4 6M24 35v4M4 10h14M9 7v6M32 8h14M39 5v6" /><path d="M4 10c3-1.5 11-1.5 14 0M32 8c3-1.5 11-1.5 14 0" /></svg>;
+  return <BookingAssetIcon src="/booking-icons/full-band-drum-kit.svg" className={className} />;
 }
 
 function ElectricGuitarIcon({ className }: IconProps) {
-  return <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="m30 5 5-3 4 4-3 5-4-1-14 15" /><path d="M20 22c-4-1-7 0-9 3-1 2 0 4-3 7-2 2-4 1-5 3-2 4 4 10 8 10 3-1 3-4 6-5 3-2 5-1 7-2 4-2 5-7 3-11l-7-5Z" /><path d="m16 29 6 6m-9-2 5 5m13-29 5 5M19 27l16-17" /><circle cx="12" cy="38" r="1.5" /></svg>;
+  return <BookingAssetIcon src="/booking-icons/duo-electric-guitar.svg" className={className} />;
 }
 
 function ElectricGuitarAltIcon({ className }: IconProps) {
-  return <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true"><path d="m34 4 4-2 4 4-2 4-5-1-15 15" /><path d="M22 21c-3 1-5 0-8 0-4 1-4 5-6 8-2 3-6 3-6 7 0 5 6 10 11 10 4 0 4-4 7-6 3-2 7 0 10-4 3-4 1-9-2-12l-6-3Z" /><path d="m16 28 7 7m-9-3 5 5M34 8l5 5M20 26 37 9" /><path d="M8 38c4-1 8 1 10 4" /></svg>;
+  return <BookingAssetIcon src="/booking-icons/guitar-i-oke-electric-guitar.svg" className={className} />;
 }
 
 function JukeboxIcon({ className }: IconProps) {
@@ -232,7 +236,7 @@ export default function Booking() {
         <motion.section initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="border border-pink-500/55 bg-black px-3 py-3 lg:px-4 lg:h-[250px] lg:overflow-hidden shadow-[inset_0_0_26px_rgba(236,72,153,0.045),0_0_14px_rgba(168,85,247,0.07)]">
           {submitted ? <div className="h-full flex items-center justify-center gap-3"><CheckCircle2 className="w-9 h-9 text-green-400" /><div><h2 className="font-display font-bold">Inquiry Sent!</h2><p className="text-xs text-white/55">Thanks — we'll be in touch soon.</p></div></div> :
             <div className="grid lg:grid-cols-[180px_1fr] gap-3 lg:gap-4 h-full">
-              <div className="flex flex-col justify-between"><div><h2 className="text-base font-display font-semibold uppercase tracking-[0.075em] text-pink-300 [text-shadow:0_0_5px_rgba(244,114,182,0.55)]">Check Availability<br />&amp; Send an Inquiry</h2><p className="text-[11px] text-white/55 mt-2">Tell us about your event and we'll get back to you ASAP!</p></div><div className="hidden lg:flex h-[108px] items-center justify-center pr-3"><HandheldMicrophoneIcon className="w-20 h-24 translate-x-2 -translate-y-6 text-purple-400/80 drop-shadow-[0_0_7px_rgba(192,132,252,0.48)]" /></div></div>
+              <div className="flex flex-col justify-between"><div><h2 className="text-base font-display font-semibold uppercase tracking-[0.075em] text-pink-300 [text-shadow:0_0_5px_rgba(244,114,182,0.55)]">Check Availability<br />&amp; Send an Inquiry</h2><p className="text-[11px] text-white/55 mt-2">Tell us about your event and we'll get back to you ASAP!</p></div><div className="hidden lg:flex h-[108px] items-center justify-center pr-3"><HandheldMicrophoneIcon className="w-20 h-24 translate-x-2 -translate-y-4 brightness-150 saturate-125 drop-shadow-[0_0_5px_rgba(192,132,252,0.55)]" /></div></div>
               <form onSubmit={handleSubmit} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-2 content-start">
                 <label className="text-[10px] text-white/70">Your Name <span className="text-pink-400">*</span><Input name="name" value={form.name} onChange={handleChange} required placeholder="First and last name" className={fieldClass} data-testid="input-booking-name" /></label>
                 <label className="text-[10px] text-white/70">Email <span className="text-pink-400">*</span><Input name="email" value={form.email} onChange={handleChange} required type="email" placeholder="name@email.com" className={fieldClass} data-testid="input-booking-email" /></label>
@@ -243,8 +247,7 @@ export default function Booking() {
                 <label className="text-[10px] text-white/70">Expected Guest Count<Input name="expectedGuestCount" value={form.expectedGuestCount} onChange={handleChange} type="number" min="1" placeholder="Approximate number" className={fieldClass} data-testid="input-booking-guest-count" /></label>
                 <label className="text-[10px] text-white/70">Performance Length<Input name="performanceLength" value={form.performanceLength} onChange={handleChange} placeholder="e.g. 2–3 hours" className={fieldClass} data-testid="input-booking-performance-length" /></label>
                 <label className="text-[10px] text-white/70">Location / Venue <span className="text-pink-400">*</span><Input name="venue" value={form.venue} onChange={handleChange} required placeholder="City, state or venue" className={fieldClass} data-testid="input-booking-venue" /></label>
-                <label className="sm:col-span-2 lg:col-span-3 text-[10px] text-white/70">Additional Details<Textarea name="message" value={form.message} onChange={handleChange} rows={1} placeholder="Tell us anything else we should know about your event…" className="mt-0.5 min-h-[40px] bg-black/75 border-white/25 resize-none text-xs transition-[border-color,box-shadow] duration-200 focus-visible:border-pink-400/70 focus-visible:ring-1 focus-visible:ring-pink-400/30 focus-visible:shadow-[0_0_8px_rgba(244,114,182,0.16)] motion-reduce:transition-none" data-testid="textarea-booking-message" /></label>
-                <div className="sm:col-span-2 lg:col-span-3 flex justify-end"><NeonButton type="submit" isLoading={isPending} size="sm" className="h-7 min-w-36 !border-green-400/65 !text-green-200 !bg-green-400/[0.07] !shadow-[inset_0_0_8px_rgba(74,222,128,0.08)] hover:!border-green-300 hover:!bg-green-400/[0.12] hover:!shadow-[inset_0_0_8px_rgba(74,222,128,0.12),0_0_13px_rgba(74,222,128,0.32)] focus-visible:!ring-green-300 motion-reduce:!transition-none" data-testid="button-booking-submit">Send Inquiry <ChevronRight className="w-3 h-3" /></NeonButton></div>
+                <div className="sm:col-span-2 lg:col-span-3 lg:relative"><label className="block text-[10px] text-white/70">Additional Details<Textarea name="message" value={form.message} onChange={handleChange} rows={1} placeholder="Tell us anything else we should know about your event…" className="mt-0.5 min-h-[40px] lg:pr-40 bg-black/75 border-white/25 resize-none text-xs transition-[border-color,box-shadow] duration-200 focus-visible:border-pink-400/70 focus-visible:ring-1 focus-visible:ring-pink-400/30 focus-visible:shadow-[0_0_8px_rgba(244,114,182,0.16)] motion-reduce:transition-none" data-testid="textarea-booking-message" /></label><div className="flex justify-end mt-2 lg:mt-0 lg:absolute lg:right-1 lg:bottom-1"><NeonButton type="submit" isLoading={isPending} size="sm" className="h-7 min-w-36 !border-green-400/65 !text-green-200 !bg-green-400/[0.07] !shadow-[inset_0_0_8px_rgba(74,222,128,0.08)] hover:!border-green-300 hover:!bg-green-400/[0.12] hover:!shadow-[inset_0_0_8px_rgba(74,222,128,0.12),0_0_13px_rgba(74,222,128,0.32)] focus-visible:!ring-green-300 motion-reduce:!transition-none" data-testid="button-booking-submit">Send Inquiry <ChevronRight className="w-3 h-3" /></NeonButton></div></div>
               </form>
             </div>}
         </motion.section>
