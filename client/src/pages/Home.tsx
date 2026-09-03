@@ -291,24 +291,29 @@ export default function Home() {
                       @keyframes gp-record-spin { to { transform: translateZ(0) rotate(360deg); } }
                       .gp-record-overlay-container {
                         position: absolute;
-                        width: 290px;
-                        height: 290px;
+                        width: ${580 / 1720 * 100}%;
+                        height: ${580 / 1290 * 100}%;
                         border-radius: 50%;
                         overflow: hidden;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        will-change: transform;
+                        top: ${(541 - 290) / 1290 * 100}%;
+                        left: ${(865 - 290) / 1720 * 100}%;
+                        transform: translateZ(0);
+                        mask-image: radial-gradient(circle closest-side, transparent ${170 / 290 * 100}%, black ${170 / 290 * 100}%);
+                        -webkit-mask-image: radial-gradient(circle closest-side, transparent ${170 / 290 * 100}%, black ${170 / 290 * 100}%);
                         pointer-events: none;
                       }
                       .gp-record-overlay-inner {
                         position: absolute;
-                        width: 100%;
-                        height: 100%;
+                        width: ${1720 / 580 * 100}%;
+                        height: ${1290 / 580 * 100}%;
+                        max-width: none;
+                        left: ${-(865 - 290) / 580 * 100}%;
+                        top: ${-(541 - 290) / 580 * 100}%;
+                        transform: translateZ(0);
                         will-change: transform;
                         backface-visibility: hidden;
                         animation: gp-record-spin 7s linear infinite;
-                        transform-origin: center center;
+                        transform-origin: ${865 / 1720 * 100}% ${541 / 1290 * 100}%;
                       }
                       @media (prefers-reduced-motion: reduce) {
                         .gp-record-overlay-inner { animation: none; }
@@ -318,16 +323,14 @@ export default function Home() {
                       <img src="/guilty_pleasures_exact_logo_transparent_production_v4.webp" className="block w-full h-full" alt="Guilty Pleasures Live Band Karaoke" />
                       {/* Artwork coordinates: center (865, 541), outer radius 290.
                           Keep the central GP label (radius 170) on the static layer. */}
-                      <div className="gp-record-overlay-container" style={{ width: "290px", height: "290px", top: "41.937984%", left: "50.290698%" }}>
-                        <div className="gp-record-overlay-inner">
+                      <div className="gp-record-overlay-container">
                           <img
                             src="/guilty_pleasures_exact_logo_transparent_production_v4.webp"
-                            className="block w-full h-full"
+                            className="gp-record-overlay-inner block"
                             alt=""
                             aria-hidden="true"
                             style={{ pointerEvents: "none" }}
                           />
-                        </div>
                       </div>
                     </div>
                   </div>
