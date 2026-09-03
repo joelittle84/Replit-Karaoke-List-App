@@ -294,10 +294,10 @@ export default function Home() {
                       }
                       .gp-record-overlay-container {
                         position: absolute;
-                        width: ${580 / 1720 * 100}%;
-                        height: ${580 / 1290 * 100}%;
-                        top: ${(541 - 290) / 1290 * 100}%;
-                        left: ${(865 - 290) / 1720 * 100}%;
+                        width: ${610 / 1448 * 100}%;
+                        height: ${610 / 1086 * 100}%;
+                        top: ${(469 - 305) / 1086 * 100}%;
+                        left: ${(723 - 305) / 1448 * 100}%;
                         transform: translateZ(0);
                         pointer-events: none;
                       }
@@ -317,9 +317,9 @@ export default function Home() {
                       }
                     `}</style>
                     <div className={logoClass.replace("logo-pulse", "") + " relative z-10 inline-block align-top"} style={{ aspectRatio: "1720 / 1290" }}>
-                      <img src="/guilty_pleasures_exact_logo_transparent_production_v4.webp" className="block w-full h-full" alt="Guilty Pleasures Live Band Karaoke" />
-                      {/* Supplied standalone record, including GP, positioned over
-                          artwork center (865, 541) with radius 290. */}
+                      {/* Record-free foreground preserves PLEASURES above the single
+                          rotating record. Coordinates use the supplied 1448 × 1086 frame. */}
+                      <img src="/gp-logo-static-frame.png" className="relative z-10 block w-full h-full pointer-events-none" alt="Guilty Pleasures Live Band Karaoke" />
                       <div className="gp-record-overlay-container">
                         <img src="/gp-vinyl-record.png" className="gp-record-overlay-inner" alt="" aria-hidden="true" />
                       </div>
