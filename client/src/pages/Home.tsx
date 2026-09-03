@@ -288,7 +288,10 @@ export default function Home() {
                   <div className="relative inline-block w-full leading-[0] mb-1">
                     <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl scale-125 pointer-events-none" />
                     <style>{`
-                      @keyframes gp-record-spin { to { transform: translateZ(0) rotate(360deg); } }
+                      @keyframes gp-record-spin {
+                        from { transform: translateZ(0) rotate(0deg); }
+                        to { transform: translateZ(0) rotate(360deg); }
+                      }
                       .gp-record-overlay-container {
                         position: absolute;
                         width: ${580 / 1720 * 100}%;
@@ -307,7 +310,7 @@ export default function Home() {
                         will-change: transform;
                         backface-visibility: hidden;
                         animation: gp-record-spin 7s linear infinite;
-                        transform-origin: center;
+                        transform-origin: 50% 50%;
                       }
                       @media (prefers-reduced-motion: reduce) {
                         .gp-record-overlay-inner { animation: none; }
@@ -315,8 +318,8 @@ export default function Home() {
                     `}</style>
                     <div className={logoClass.replace("logo-pulse", "") + " relative z-10 inline-block align-top"} style={{ aspectRatio: "1720 / 1290" }}>
                       <img src="/guilty_pleasures_exact_logo_transparent_production_v4.webp" className="block w-full h-full" alt="Guilty Pleasures Live Band Karaoke" />
-                      {/* Standalone circular crop: center (865, 541), radius 290,
-                          including the GP label. Only this small raster rotates. */}
+                      {/* Supplied standalone record, including GP, positioned over
+                          artwork center (865, 541) with radius 290. */}
                       <div className="gp-record-overlay-container">
                         <img src="/gp-vinyl-record.png" className="gp-record-overlay-inner" alt="" aria-hidden="true" />
                       </div>
