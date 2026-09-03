@@ -293,8 +293,6 @@ export default function Home() {
                         position: absolute;
                         width: ${580 / 1720 * 100}%;
                         height: ${580 / 1290 * 100}%;
-                        border-radius: 50%;
-                        overflow: hidden;
                         top: ${(541 - 290) / 1290 * 100}%;
                         left: ${(865 - 290) / 1720 * 100}%;
                         transform: translateZ(0);
@@ -305,28 +303,11 @@ export default function Home() {
                         inset: 0;
                         width: 100%;
                         height: 100%;
-                        border-radius: 50%;
-                        background-image: url('/guilty_pleasures_exact_logo_transparent_production_v4.webp');
-                        background-repeat: no-repeat;
-                        background-size: ${1720 / 580 * 100}% ${1290 / 580 * 100}%;
-                        background-position: ${(865 - 290) / (1720 - 580) * 100}% ${(541 - 290) / (1290 - 580) * 100}%;
                         transform: translateZ(0) rotate(0deg);
                         will-change: transform;
                         backface-visibility: hidden;
                         animation: gp-record-spin 7s linear infinite;
                         transform-origin: center;
-                      }
-                      .gp-record-center-label {
-                        position: absolute;
-                        width: ${340 / 580 * 100}%;
-                        height: ${340 / 580 * 100}%;
-                        left: ${(290 - 170) / 580 * 100}%;
-                        top: ${(290 - 170) / 580 * 100}%;
-                        border-radius: 50%;
-                        background-image: url('/guilty_pleasures_exact_logo_transparent_production_v4.webp');
-                        background-repeat: no-repeat;
-                        background-size: ${1720 / 340 * 100}% ${1290 / 340 * 100}%;
-                        background-position: ${(865 - 170) / (1720 - 340) * 100}% ${(541 - 170) / (1290 - 340) * 100}%;
                       }
                       @media (prefers-reduced-motion: reduce) {
                         .gp-record-overlay-inner { animation: none; }
@@ -334,11 +315,10 @@ export default function Home() {
                     `}</style>
                     <div className={logoClass.replace("logo-pulse", "") + " relative z-10 inline-block align-top"} style={{ aspectRatio: "1720 / 1290" }}>
                       <img src="/guilty_pleasures_exact_logo_transparent_production_v4.webp" className="block w-full h-full" alt="Guilty Pleasures Live Band Karaoke" />
-                      {/* Artwork coordinates: center (865, 541), outer radius 290.
-                          Keep the central GP label (radius 170) on the static layer. */}
+                      {/* Standalone circular crop: center (865, 541), radius 290,
+                          including the GP label. Only this small raster rotates. */}
                       <div className="gp-record-overlay-container">
-                        <div className="gp-record-overlay-inner" aria-hidden="true" />
-                        <div className="gp-record-center-label" aria-hidden="true" />
+                        <img src="/gp-vinyl-record.png" className="gp-record-overlay-inner" alt="" aria-hidden="true" />
                       </div>
                     </div>
                   </div>
