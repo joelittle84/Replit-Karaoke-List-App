@@ -298,22 +298,35 @@ export default function Home() {
                         top: ${(541 - 290) / 1290 * 100}%;
                         left: ${(865 - 290) / 1720 * 100}%;
                         transform: translateZ(0);
-                        mask-image: radial-gradient(circle closest-side, transparent ${170 / 290 * 100}%, black ${170 / 290 * 100}%);
-                        -webkit-mask-image: radial-gradient(circle closest-side, transparent ${170 / 290 * 100}%, black ${170 / 290 * 100}%);
                         pointer-events: none;
                       }
                       .gp-record-overlay-inner {
                         position: absolute;
-                        width: ${1720 / 580 * 100}%;
-                        height: ${1290 / 580 * 100}%;
-                        max-width: none;
-                        left: ${-(865 - 290) / 580 * 100}%;
-                        top: ${-(541 - 290) / 580 * 100}%;
-                        transform: translateZ(0);
+                        inset: 0;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        background-image: url('/guilty_pleasures_exact_logo_transparent_production_v4.webp');
+                        background-repeat: no-repeat;
+                        background-size: ${1720 / 580 * 100}% ${1290 / 580 * 100}%;
+                        background-position: ${(865 - 290) / (1720 - 580) * 100}% ${(541 - 290) / (1290 - 580) * 100}%;
+                        transform: translateZ(0) rotate(0deg);
                         will-change: transform;
                         backface-visibility: hidden;
                         animation: gp-record-spin 7s linear infinite;
-                        transform-origin: ${865 / 1720 * 100}% ${541 / 1290 * 100}%;
+                        transform-origin: center;
+                      }
+                      .gp-record-center-label {
+                        position: absolute;
+                        width: ${340 / 580 * 100}%;
+                        height: ${340 / 580 * 100}%;
+                        left: ${(290 - 170) / 580 * 100}%;
+                        top: ${(290 - 170) / 580 * 100}%;
+                        border-radius: 50%;
+                        background-image: url('/guilty_pleasures_exact_logo_transparent_production_v4.webp');
+                        background-repeat: no-repeat;
+                        background-size: ${1720 / 340 * 100}% ${1290 / 340 * 100}%;
+                        background-position: ${(865 - 170) / (1720 - 340) * 100}% ${(541 - 170) / (1290 - 340) * 100}%;
                       }
                       @media (prefers-reduced-motion: reduce) {
                         .gp-record-overlay-inner { animation: none; }
@@ -324,13 +337,8 @@ export default function Home() {
                       {/* Artwork coordinates: center (865, 541), outer radius 290.
                           Keep the central GP label (radius 170) on the static layer. */}
                       <div className="gp-record-overlay-container">
-                          <img
-                            src="/guilty_pleasures_exact_logo_transparent_production_v4.webp"
-                            className="gp-record-overlay-inner block"
-                            alt=""
-                            aria-hidden="true"
-                            style={{ pointerEvents: "none" }}
-                          />
+                        <div className="gp-record-overlay-inner" aria-hidden="true" />
+                        <div className="gp-record-center-label" aria-hidden="true" />
                       </div>
                     </div>
                   </div>
