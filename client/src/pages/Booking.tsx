@@ -230,7 +230,7 @@ export default function Booking() {
               <div className="group"><Star className="w-7 h-7 mx-auto text-purple-400/90 drop-shadow-[0_0_5px_rgba(192,132,252,0.5)] transition-transform duration-200 group-hover:scale-110 motion-reduce:transition-none" /><p className="text-[9px] uppercase text-green-400/80 mt-1">Professional<br />Live Band</p></div>
             </div>
           </div>
-          <div className="min-h-[240px] lg:min-h-0 bg-black flex items-center justify-center"><img src="/booking-hero-approved.jpg" alt="Guilty Pleasures stage, crowd, microphone, and lyric monitor" className="w-full h-full object-contain" /></div>
+          <div className="min-h-[240px] lg:min-h-0 bg-black flex items-center justify-center"><img src="/booking-hero-brightened.png" alt="Guilty Pleasures stage, crowd, microphone, and lyric monitor" className="w-full h-full object-contain" /></div>
         </motion.section>
 
         <motion.section initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="border border-pink-500/55 bg-black px-3 py-3 lg:px-4 lg:h-[250px] lg:overflow-hidden shadow-[inset_0_0_26px_rgba(236,72,153,0.045),0_0_14px_rgba(168,85,247,0.07)]">
