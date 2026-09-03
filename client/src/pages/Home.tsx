@@ -287,14 +287,14 @@ export default function Home() {
               if (logoUrl?.value) {
                 const s = logoSize?.value || "medium";
                 const sp = logoSpacing?.value || "medium";
-                let logoClass = `h-80 md:h-[22rem] mx-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.15)] logo-pulse`;
-                if (s === "small") logoClass = `h-64 md:h-72 mx-auto drop-shadow-[0_0_20px_rgba(255,255,255,0.12)] logo-pulse`;
-                else if (s === "large") logoClass = `h-[28rem] md:h-[32rem] mx-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
-                else if (s === "full") logoClass = `w-full max-w-3xl mx-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
+                let logoClass = `h-52 md:h-56 mx-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.15)] logo-pulse`;
+                if (s === "small") logoClass = `h-40 md:h-[11.5rem] mx-auto drop-shadow-[0_0_20px_rgba(255,255,255,0.12)] logo-pulse`;
+                else if (s === "large") logoClass = `h-[17.5rem] md:h-80 mx-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
+                else if (s === "full") logoClass = `w-full max-w-[29.5rem] mx-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
                 return (
-                  <div className="relative inline-block w-full leading-[0] -mb-10">
+                  <div className="relative inline-block w-full leading-[0] mb-1">
                     <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl scale-125 pointer-events-none" />
-                    <img src={logoUrl.value} className={logoClass + " relative z-10"} alt="Logo" />
+                    <img src="/guilty_pleasures_exact_logo_transparent_production_v4.webp" className={logoClass + " relative z-10"} alt="Logo" />
                   </div>
                 );
               }
