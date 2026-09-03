@@ -294,7 +294,7 @@ export default function Home() {
                 return (
                   <div className="relative inline-block w-full leading-[0] mb-1">
                     <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl scale-125 pointer-events-none" />
-                    <img src="/gp-spinning-logo.svg" className={logoClass + " relative z-10"} alt="Logo" />
+                    <img src="/gp-spinning-logo.svg?v=2" className={logoClass + " relative z-10"} alt="Logo" />
                   </div>
                 );
               }
