@@ -292,6 +292,16 @@ export default function Home() {
                         from { transform: translateZ(0) rotate(0deg); }
                         to { transform: translateZ(0) rotate(360deg); }
                       }
+                      .gp-logo-base-image {
+                        /* Mask out the static record baked into the base logo artwork
+                           so only the single rotating overlay record is visible. The
+                           masked region exactly matches the overlay's circular bounds
+                           (center 865,541 / radius 290 on the 1720x1290 artwork). */
+                        -webkit-mask-image: radial-gradient(ellipse ${290 / 1720 * 100}% ${290 / 1290 * 100}% at ${865 / 1720 * 100}% ${541 / 1290 * 100}%, transparent 0%, transparent 99%, black 100%);
+                        mask-image: radial-gradient(ellipse ${290 / 1720 * 100}% ${290 / 1290 * 100}% at ${865 / 1720 * 100}% ${541 / 1290 * 100}%, transparent 0%, transparent 99%, black 100%);
+                        -webkit-mask-repeat: no-repeat;
+                        mask-repeat: no-repeat;
+                      }
                       .gp-record-overlay-container {
                         position: absolute;
                         width: ${580 / 1720 * 100}%;
@@ -317,9 +327,11 @@ export default function Home() {
                       }
                     `}</style>
                     <div className={logoClass.replace("logo-pulse", "") + " relative z-10 inline-block align-top"} style={{ aspectRatio: "1720 / 1290" }}>
-                      <img src="/guilty_pleasures_exact_logo_transparent_production_v4.webp" className="block w-full h-full" alt="Guilty Pleasures Live Band Karaoke" />
-                      {/* Supplied standalone record, including GP, positioned over
-                          artwork center (865, 541) with radius 290. */}
+                      <img src="/guilty_pleasures_exact_logo_transparent_production_v4.webp" className="gp-logo-base-image block w-full h-full" alt="Guilty Pleasures Live Band Karaoke" />
+                      {/* Supplied standalone record, including GP, replaces the static
+                          record masked out of the base artwork above. Positioned over
+                          artwork center (865, 541) with radius 290 and rotated as a
+                          single rigid image to avoid dual-record moire. */}
                       <div className="gp-record-overlay-container">
                         <img src="/gp-vinyl-record.png" className="gp-record-overlay-inner" alt="" aria-hidden="true" />
                       </div>
