@@ -288,32 +288,52 @@ export default function Home() {
                   <div className="relative inline-block w-full leading-[0] mb-1">
                     <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl scale-125 pointer-events-none" />
                     <style>{`
-                      @keyframes gp-record-spin { to { transform: rotate(360deg); } }
-                      .gp-record-overlay { animation: gp-record-spin 7s linear infinite; }
+                      @keyframes gp-record-spin { to { transform: translateZ(0) rotate(360deg); } }
+                      .gp-record-overlay-container {
+                        position: absolute;
+                        width: 290px;
+                        height: 290px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        will-change: transform;
+                        pointer-events: none;
+                      }
+                      .gp-record-overlay-inner {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        will-change: transform;
+                        backface-visibility: hidden;
+                        animation: gp-record-spin 7s linear infinite;
+                        transform-origin: center center;
+                      }
                       @media (prefers-reduced-motion: reduce) {
-                        .gp-record-overlay { animation: none; }
+                        .gp-record-overlay-inner { animation: none; }
                       }
                     `}</style>
                     <div className={logoClass.replace("logo-pulse", "") + " relative z-10 inline-block align-top"} style={{ aspectRatio: "1720 / 1290" }}>
                       <img src="/guilty_pleasures_exact_logo_transparent_production_v4.webp" className="block w-full h-full" alt="Guilty Pleasures Live Band Karaoke" />
                       {/* Artwork coordinates: center (865, 541), outer radius 290.
                           Keep the central GP label (radius 170) on the static layer. */}
-                      <img
-                        src="/guilty_pleasures_exact_logo_transparent_production_v4.webp"
-                        className="gp-record-overlay absolute inset-0 w-full h-full pointer-events-none"
-                        alt=""
-                        aria-hidden="true"
-                        style={{
-                          transformOrigin: "50.290698% 41.937984%",
-                          clipPath: "ellipse(16.860465% 22.480620% at 50.290698% 41.937984%)",
-                          maskImage: "radial-gradient(ellipse 9.883721% 13.178295% at 50.290698% 41.937984%, transparent 99%, black 100%)",
-                          WebkitMaskImage: "radial-gradient(ellipse 9.883721% 13.178295% at 50.290698% 41.937984%, transparent 99%, black 100%)",
-                        }}
-                      />
+                      <div className="gp-record-overlay-container" style={{ width: "290px", height: "290px", top: "41.937984%", left: "50.290698%" }}>
+                        <div className="gp-record-overlay-inner">
+                          <img
+                            src="/guilty_pleasures_exact_logo_transparent_production_v4.webp"
+                            className="block w-full h-full"
+                            alt=""
+                            aria-hidden="true"
+                            style={{ pointerEvents: "none" }}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 );
             })()}
+
             <p className="text-muted-foreground font-medium text-lg mt-0">
               {businessInfo?.value || "You're the star. We're the band."}
             </p>
