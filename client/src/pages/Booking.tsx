@@ -1,10 +1,10 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   ArrowLeft, CheckCircle2, ChevronLeft, ChevronRight, Instagram, Loader2,
-  Mail, Music2, Play, Star, Users,
+  Mail, Music2, Play, Star, Users, X,
 } from "lucide-react";
 import { TbGuitarPick } from "react-icons/tb";
 import { NeonButton } from "@/components/NeonButton";
@@ -145,8 +145,9 @@ export default function Booking() {
   const [expandedExperience, setExpandedExperience] = useState<string | null>(null);
   const [showGuitar, setShowGuitar] = useState(false);
   const [showStory, setShowStory] = useState(false);
-  const [activeVideo, setActiveVideo] = useState<number | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const mediaStripRef = useRef<HTMLDivElement>(null);
+  const lightboxCloseRef = useRef<HTMLButtonElement>(null);
   const [form, setForm] = useState({
     name: "", email: "", phone: "", preferredFormat: "", eventType: "", eventDate: "",
     expectedGuestCount: "", performanceLength: "", venue: "", message: "",
@@ -188,14 +189,32 @@ export default function Booking() {
     submitInquiry();
   };
 
-  if (isLoading) return <div className="min-h-screen bg-black flex items-center justify-center"><Loader2 className="w-8 h-8 animate-spin text-primary" /></div>;
-  if (!page?.enabled) return <div className="min-h-screen bg-black flex flex-col items-center justify-center p-8 text-center"><Music2 className="w-16 h-16 text-primary/50 mb-4" /><h1 className="text-2xl font-display font-bold text-white mb-2">Booking Unavailable</h1><p className="text-muted-foreground mb-6">Booking inquiries are not currently being accepted.</p><Link href="/"><NeonButton variant="outline">Back to Home</NeonButton></Link></div>;
-
   const icons = [DrumKitIcon, ElectricGuitarIcon, JukeboxIcon, Star];
-  const mediaItems = Array.from({ length: Math.max(page.photos.length, page.videos.length) }).flatMap((_, index) => [
-    page.photos[index] ? { type: "photo" as const, src: page.photos[index], index } : null,
-    page.videos[index] ? { type: "video" as const, video: page.videos[index], index } : null,
+  const photos = page?.photos ?? [];
+  const videos = page?.videos ?? [];
+  const mediaItems = Array.from({ length: Math.max(photos.length, videos.length) }).flatMap((_, index) => [
+    photos[index] ? { type: "photo" as const, src: photos[index], index } : null,
+    videos[index] ? { type: "video" as const, video: videos[index], index } : null,
   ].filter((item): item is NonNullable<typeof item> => item !== null));
+  const activeMedia = lightboxIndex === null ? null : mediaItems[lightboxIndex];
+  const moveLightbox = (direction: -1 | 1) => setLightboxIndex(current => current === null ? null : (current + direction + mediaItems.length) % mediaItems.length);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    lightboxCloseRef.current?.focus();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setLightboxIndex(null);
+      if (event.key === "ArrowLeft") moveLightbox(-1);
+      if (event.key === "ArrowRight") moveLightbox(1);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [lightboxIndex, mediaItems.length]);
   const moveMedia = (direction: -1 | 1) => mediaStripRef.current?.scrollBy({ left: direction * mediaStripRef.current.clientWidth * 0.82, behavior: reduceMotion ? "auto" : "smooth" });
   const expanded = experiences.find(item => item.title === expandedExperience);
   const heading = (title: string) => <div className="h-5 flex items-center gap-3"><div className="h-px flex-1 bg-gradient-to-r from-transparent via-green-400/60 to-cyan-300/50 shadow-[0_0_6px_rgba(74,222,128,0.4)]" /><h2 className="text-xs sm:text-sm font-display font-bold uppercase tracking-[0.18em] text-green-200/95 text-center [text-shadow:0_0_5px_rgba(74,222,128,0.65),0_0_12px_rgba(34,211,238,0.22)]">{title}</h2><div className="h-px flex-1 bg-gradient-to-l from-transparent via-green-400/60 to-pink-400/45 shadow-[0_0_6px_rgba(74,222,128,0.4)]" /></div>;
@@ -216,6 +235,9 @@ export default function Booking() {
     "border-purple-400/55 text-purple-100 hover:border-purple-300 hover:bg-purple-400/[0.07] hover:shadow-[0_0_8px_rgba(192,132,252,0.3)] focus-visible:ring-purple-300",
   ];
 
+  if (isLoading) return <div className="min-h-screen bg-black flex items-center justify-center"><Loader2 className="w-8 h-8 animate-spin text-primary" /></div>;
+  if (!page?.enabled) return <div className="min-h-screen bg-black flex flex-col items-center justify-center p-8 text-center"><Music2 className="w-16 h-16 text-primary/50 mb-4" /><h1 className="text-2xl font-display font-bold text-white mb-2">Booking Unavailable</h1><p className="text-muted-foreground mb-6">Booking inquiries are not currently being accepted.</p><Link href="/"><NeonButton variant="outline">Back to Home</NeonButton></Link></div>;
+
   return (
     <div className="min-h-screen bg-black text-white">
       <main className="max-w-6xl mx-auto px-3 sm:px-4 py-3 space-y-1.5">
@@ -230,7 +252,7 @@ export default function Booking() {
               <div className="group"><Star className="w-7 h-7 mx-auto text-purple-400/90 drop-shadow-[0_0_5px_rgba(192,132,252,0.5)] transition-transform duration-200 group-hover:scale-110 motion-reduce:transition-none" /><p className="text-[9px] uppercase text-green-400/80 mt-1">Professional<br />Live Band</p></div>
             </div>
           </div>
-          <div className="min-h-[240px] lg:min-h-0 bg-black flex items-center justify-center"><img src="/booking-hero-approved.jpg" alt="Guilty Pleasures stage, crowd, microphone, and lyric monitor" className="w-full h-full object-contain" /></div>
+          <div className="min-h-[240px] lg:min-h-0 bg-black flex items-center justify-center"><img src="/booking-hero-brightened.png" alt="Guilty Pleasures stage, crowd, microphone, and lyric monitor" className="w-full h-full object-contain" /></div>
         </motion.section>
 
         <motion.section initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="border border-pink-500/55 bg-black px-3 py-3 lg:px-4 lg:h-[250px] lg:overflow-hidden shadow-[inset_0_0_26px_rgba(236,72,153,0.045),0_0_14px_rgba(168,85,247,0.07)]">
@@ -271,31 +293,26 @@ export default function Booking() {
             <div className="relative h-[126px] px-4">
               <button type="button" onClick={() => moveMedia(-1)} aria-label="Previous media" className={`absolute left-0 top-1/2 z-10 -translate-y-1/2 w-6 h-8 flex items-center justify-center rounded-full border border-white/30 bg-black/80 text-white/70 hover:text-cyan-200 hover:border-cyan-300/70 focus-visible:ring-cyan-300 ${neonButton}`}><ChevronLeft className="w-4 h-4" /></button>
               <div ref={mediaStripRef} className={`h-full flex gap-1.5 overflow-x-auto scroll-smooth motion-reduce:scroll-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${mediaItems.length < 6 ? "lg:justify-center" : ""}`}>
-              {mediaItems.map(item => {
+              {mediaItems.map((item, mediaIndex) => {
                 if (item.type === "photo") return (
-                  <div key={`photo-${item.index}`} data-display-mode={displayMode} className="relative group h-full shrink-0 basis-[46%] sm:basis-[30%] lg:basis-[calc((100%-1.875rem)/6)] lg:max-w-[calc((100%-1.875rem)/6)] border border-white/20 overflow-hidden bg-zinc-950 shadow-[inset_0_0_10px_rgba(255,255,255,0.025)] transition-all duration-200 hover:-translate-y-px hover:border-cyan-300/60 hover:shadow-[0_0_10px_rgba(34,211,238,0.18)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+                  <button type="button" key={`photo-${item.index}`} data-display-mode={displayMode} onClick={() => setLightboxIndex(mediaIndex)} aria-label={`View Guilty Pleasures performance photo ${item.index + 1}`} className="relative group h-full shrink-0 basis-[46%] sm:basis-[30%] lg:basis-[calc((100%-1.875rem)/6)] lg:max-w-[calc((100%-1.875rem)/6)] border border-white/20 overflow-hidden bg-zinc-950 shadow-[inset_0_0_10px_rgba(255,255,255,0.025)] transition-all duration-200 hover:-translate-y-px hover:border-cyan-300/60 hover:shadow-[0_0_10px_rgba(34,211,238,0.18)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-cyan-300 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
                     <img src={item.src} alt={`Guilty Pleasures performance ${item.index + 1}`} className="w-full h-full object-cover transition-[transform,filter] duration-200 group-hover:scale-[1.025] group-hover:brightness-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100" />
                     <span className="absolute inset-0 pointer-events-none bg-black/10 ring-1 ring-inset ring-white/[0.04] transition-colors duration-200 group-hover:bg-transparent motion-reduce:transition-none" />
-                  </div>
+                  </button>
                 );
                 const video = item.video;
                 const index = item.index;
                 const id = getYouTubeId(video.url);
                 const embedUrl = getYouTubeEmbedUrl(video.url);
                 if (!id || !embedUrl) return null;
-                const playing = activeVideo === index;
                 return (
                   <div key={`video-${index}`} className="relative group h-full shrink-0 basis-[46%] sm:basis-[30%] lg:basis-[calc((100%-1.875rem)/6)] lg:max-w-[calc((100%-1.875rem)/6)] border border-white/20 overflow-hidden bg-zinc-950 shadow-[inset_0_0_10px_rgba(255,255,255,0.025)] transition-all duration-200 hover:-translate-y-px hover:border-pink-300/60 hover:shadow-[0_0_10px_rgba(244,114,182,0.18)] focus-within:border-pink-300/60 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-                    {playing ? (
-                      <iframe src={embedUrl} title={video.title || `Performance video ${index + 1}`} className="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-                    ) : (
-                      <button type="button" onClick={() => setActiveVideo(index)} aria-label={`Play ${video.title || `performance video ${index + 1}`}`} className="relative w-full h-full overflow-hidden focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-pink-300">
+                      <button type="button" onClick={() => setLightboxIndex(mediaIndex)} aria-label={`Open ${video.title || `performance video ${index + 1}`}`} className="relative w-full h-full overflow-hidden focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-pink-300">
                         <img src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`} alt="" className="w-full h-full object-cover opacity-80 transition-[transform,opacity] duration-200 group-hover:scale-[1.025] group-hover:opacity-95 motion-reduce:transition-none motion-reduce:group-hover:scale-100" />
                         <span className="absolute inset-0 bg-black/20" />
                         <span className="absolute inset-0 flex items-center justify-center"><span className="w-9 h-9 rounded-full border border-pink-300/70 bg-black/70 flex items-center justify-center shadow-[0_0_12px_rgba(244,114,182,0.35)] transition-transform duration-200 group-hover:scale-110 motion-reduce:transition-none"><Play className="w-4 h-4 ml-0.5 text-pink-300 fill-pink-300/25" /></span></span>
                         <span className="absolute left-2 bottom-2 flex items-center gap-1 text-[9px] bg-black/75 px-1.5 py-0.5 text-pink-100">{video.title || "Live in Action"}</span>
                       </button>
-                    )}
                   </div>
                 );
               })}
@@ -310,6 +327,20 @@ export default function Booking() {
           <AnimatePresence initial={false}>{showStory && <motion.div id="story-details" initial={reduceMotion ? false : { opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -4 }} transition={expansionMotion} className="pt-2 border-t border-green-400/20 space-y-2 text-sm text-white/75">{storyParagraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}</motion.div>}</AnimatePresence>
         </motion.section>
       </main>
+      <AnimatePresence>
+        {activeMedia && (
+          <motion.div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-2 sm:p-6" role="dialog" aria-modal="true" aria-label="Performance media viewer" initial={reduceMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={expansionMotion} onMouseDown={event => { if (event.target === event.currentTarget) setLightboxIndex(null); }}>
+            <div className="relative flex h-[96vh] w-[96vw] sm:h-[88vh] sm:w-[88vw] items-center justify-center">
+              <button ref={lightboxCloseRef} type="button" onClick={() => setLightboxIndex(null)} aria-label="Close media viewer" className="absolute right-0 top-0 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/50 bg-black/85 text-white hover:border-pink-300 hover:text-pink-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-300"><X className="h-6 w-6" /></button>
+              {mediaItems.length > 1 && <button type="button" onClick={() => moveLightbox(-1)} aria-label="Previous media item" className="absolute left-0 top-1/2 z-20 flex h-12 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/85 text-white hover:border-cyan-300 hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"><ChevronLeft className="h-7 w-7" /></button>}
+              <div className="flex h-full w-full items-center justify-center px-11 py-12">
+                {activeMedia.type === "photo" ? <img src={activeMedia.src} alt={`Guilty Pleasures performance ${activeMedia.index + 1}`} className="max-h-full max-w-full object-contain" /> : (() => { const src = getYouTubeEmbedUrl(activeMedia.video.url); return src ? <iframe key={activeMedia.video.url} src={src} title={activeMedia.video.title || `Performance video ${activeMedia.index + 1}`} className="h-full w-full max-h-[90vh] max-w-[90vw]" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen /> : null; })()}
+              </div>
+              {mediaItems.length > 1 && <button type="button" onClick={() => moveLightbox(1)} aria-label="Next media item" className="absolute right-0 top-1/2 z-20 flex h-12 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/85 text-white hover:border-cyan-300 hover:text-cyan-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"><ChevronRight className="h-7 w-7" /></button>}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -83,9 +83,7 @@ export default function Home() {
   const { mutate: submitRequest, isPending: isSubmitting } = useCreateRequest();
   const { data: guitarMode } = useSettings("guitar_mode");
   const { data: guitarInstructions } = useSettings("guitar_instructions");
-  const { data: businessName } = useSettings("business_name");
   const { data: businessInfo } = useSettings("business_info");
-  const { data: logoUrl, isLoading: isLogoLoading } = useSettings("logo_url");
   const { data: logoSize } = useSettings("logo_size");
   const { data: logoSpacing } = useSettings("logo_spacing");
   const { data: artworkUrl } = useSettings("hero_artwork_url");
@@ -281,12 +279,7 @@ export default function Home() {
         <div className="w-full text-center relative z-10 pt-4">
           <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5 }}>
             {(() => {
-              if (isLogoLoading) {
-                return <div className="h-40 md:h-56 mx-auto mb-2 animate-pulse bg-white/5 rounded-lg w-full max-w-[320px]" />;
-              }
-              if (logoUrl?.value) {
                 const s = logoSize?.value || "medium";
-                const sp = logoSpacing?.value || "medium";
                 let logoClass = `h-52 md:h-56 mx-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.15)] logo-pulse`;
                 if (s === "small") logoClass = `h-40 md:h-[11.5rem] mx-auto drop-shadow-[0_0_20px_rgba(255,255,255,0.12)] logo-pulse`;
                 else if (s === "large") logoClass = `h-[17.5rem] md:h-80 mx-auto drop-shadow-[0_0_40px_rgba(255,255,255,0.2)] logo-pulse`;
@@ -294,28 +287,47 @@ export default function Home() {
                 return (
                   <div className="relative inline-block w-full leading-[0] mb-1">
                     <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl scale-125 pointer-events-none" />
-                    <img src="/gp-spinning-logo.svg?v=2" className={logoClass + " relative z-10"} alt="Logo" />
+                    <style>{`
+                      @keyframes gp-record-spin {
+                        from { transform: translateZ(0) rotate(0deg); }
+                        to { transform: translateZ(0) rotate(360deg); }
+                      }
+                      .gp-record-overlay-container {
+                        position: absolute;
+                        width: ${610 / 1448 * 100}%;
+                        height: ${610 / 1086 * 100}%;
+                        top: ${(469 - 305) / 1086 * 100}%;
+                        left: ${(723 - 305) / 1448 * 100}%;
+                        transform: translateZ(0);
+                        pointer-events: none;
+                      }
+                      .gp-record-overlay-inner {
+                        position: absolute;
+                        inset: 0;
+                        width: 100%;
+                        height: 100%;
+                        transform: translateZ(0) rotate(0deg);
+                        will-change: transform;
+                        backface-visibility: hidden;
+                        animation: gp-record-spin 7s linear infinite;
+                        transform-origin: 50% 50%;
+                      }
+                      @media (prefers-reduced-motion: reduce) {
+                        .gp-record-overlay-inner { animation: none; }
+                      }
+                    `}</style>
+                    <div className={logoClass.replace("logo-pulse", "") + " relative z-10 inline-block align-top"} style={{ aspectRatio: "1720 / 1290" }}>
+                      {/* Record-free foreground preserves PLEASURES above the single
+                          rotating record. Coordinates use the supplied 1448 × 1086 frame. */}
+                      <img src="/gp-logo-static-frame.png" className="relative z-10 block w-full h-full pointer-events-none" alt="Guilty Pleasures Live Band Karaoke" />
+                      <div className="gp-record-overlay-container">
+                        <img src="/gp-vinyl-record.png" className="gp-record-overlay-inner" alt="" aria-hidden="true" />
+                      </div>
+                    </div>
                   </div>
                 );
-              }
-              if (businessName?.value) {
-                const words = businessName.value.trim().split(/\s+/);
-                const line1 = words.slice(0, 2).join(" ");
-                const line2 = words.slice(2).join(" ");
-                return (
-                  <h1 className="text-6xl md:text-7xl font-neon mb-2 leading-tight tracking-wider">
-                    <span className="block text-white text-glow-multicolor">{line1}</span>
-                    {line2 && <span className="block text-primary text-glow mt-1">{line2}</span>}
-                  </h1>
-                );
-              }
-              return (
-                <h1 className="text-6xl md:text-7xl font-neon mb-2 leading-tight tracking-wider">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/70 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">LIVE BAND</span>
-                  <span className="block text-primary text-glow mt-1">KARAOKE</span>
-                </h1>
-              );
             })()}
+
             <p className="text-muted-foreground font-medium text-lg mt-0">
               {businessInfo?.value || "You're the star. We're the band."}
             </p>
